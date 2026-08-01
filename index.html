@@ -4184,159 +4184,6 @@
 </script>
 
 <style>
-  .anime-card {
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto 30px auto;
-    background: #141414;
-    border-radius: 8px;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-    color: #fff;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-  }
-  .anime-header {
-    padding: 16px 20px;
-    background: #1f1f1f;
-    border-bottom: 1px solid #333;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .anime-title { margin: 0; font-size: 20px; font-weight: bold; color: #00aaff; }
-  .anime-subtitle { margin: 4px 0 0 0; font-size: 13px; color: #aaa; }
-  .server-select {
-    background: #2b2b2b;
-    color: #00aaff;
-    border: 1px solid #00aaff;
-    padding: 6px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  .player-box {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%;
-    background: #000;
-  }
-  .player-box iframe {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%; border: none;
-  }
-  .player-placeholder {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: radial-gradient(circle, #081e2a 0%, #0a0a0a 100%);
-    z-index: 2;
-  }
-  .start-btn-bleach {
-    background: #00aaff;
-    color: #000;
-    border: none;
-    padding: 12px 28px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: transform 0.2s, background 0.2s;
-  }
-  .start-btn-bleach:hover {
-    transform: scale(1.05);
-    background: #33bbff;
-  }
-  .ep-box {
-    padding: 20px;
-    background: #101010;
-    max-height: 300px;
-    overflow-y: auto;
-  }
-  .ep-grid { display: flex; flex-wrap: wrap; gap: 8px; }
-  .ep-grid button {
-    background: #222; color: #ccc; border: 1px solid #444;
-    padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 13px;
-  }
-  .ep-grid button:hover, .ep-grid button.active {
-    background: #00aaff; color: #000; border-color: #00aaff; font-weight: bold;
-  }
-</style>
-
-<article class="anime-card">
-  <div class="anime-header">
-    <div>
-      <h3 class="anime-title">Bleach (Original Series)</h3>
-      <p class="anime-subtitle" id="bleach-status">Избери епизод за пускане</p>
-    </div>
-    <select class="server-select" id="bleach-server" onchange="if(isBleachStarted) loadBleachEp();">
-      <option value="vidlink">Server 1 (Vidlink)</option>
-      <option value="autoembed">Server 2 (Autoembed)</option>
-      <option value="2embed">Server 3 (2Embed)</option>
-    </select>
-  </div>
-
-  <div class="player-box">
-    <div class="player-placeholder" id="bleach-placeholder">
-      <button class="start-btn-bleach" onclick="startBleachPlayer()">▶ Зареди плейъра (Епизод 1)</button>
-    </div>
-    <iframe id="bleach-frame" allowfullscreen referrerpolicy="origin"></iframe>
-  </div>
-
-  <div class="ep-box">
-    <div class="ep-grid" id="bleach-grid"></div>
-  </div>
-</article>
-
-<script>
-  let currentBleachEp = 1;
-  let isBleachStarted = false;
-  const bleachTmdb = '30984';
-
-  function getBleachUrl(server, ep) {
-    if (server === 'autoembed') return `https://player.autoembed.cc/embed/tv/${bleachTmdb}/1/${ep}`;
-    if (server === '2embed') return `https://www.2embed.cc/embedtvfull/${bleachTmdb}?s=1&e=${ep}`;
-    return `https://vidlink.pro/tv/${bleachTmdb}/1/${ep}`;
-  }
-
-  function startBleachPlayer() {
-    isBleachStarted = true;
-    document.getElementById('bleach-placeholder').style.display = 'none';
-    loadBleachEp();
-  }
-
-  function loadBleachEp() {
-    const server = document.getElementById('bleach-server').value;
-    document.getElementById('bleach-frame').src = getBleachUrl(server, currentBleachEp);
-    document.getElementById('bleach-status').innerText = `Episode ${currentBleachEp}`;
-  }
-
-  function selectBleachEp(ep, btn) {
-    currentBleachEp = ep;
-    if (!isBleachStarted) {
-      startBleachPlayer();
-    } else {
-      loadBleachEp();
-    }
-    document.querySelectorAll('#bleach-grid button').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-  }
-
-  (function initBleach() {
-    const grid = document.getElementById('bleach-grid');
-    let html = '';
-    for (let i = 1; i <= 366; i++) {
-      html += `<button class="${i === 1 ? 'active' : ''}" onclick="selectBleachEp(${i}, this)">E${i}</button>`;
-    }
-    grid.innerHTML = html;
-  })();
-</script>
-
-<style>
   .tybw-card {
     width: 100%;
     max-width: 900px;
@@ -4448,22 +4295,19 @@
     <iframe id="tybw-frame" allowfullscreen referrerpolicy="origin"></iframe>
   </div>
 
-  <div class="ep-box" id="tybw-episodes-container">
-    <!-- Сезоните се генерират автоматично с JS -->
-  </div>
+  <div class="ep-box" id="tybw-episodes-container"></div>
 </article>
 
 <script>
   let currentTybwSeason = 1;
   let currentTybwEp = 1;
   let isTybwStarted = false;
-  const tybwTmdb = '114410'; // TMDB ID за Bleach TYBW
+  const tybwTmdb = '120089';
 
   const tybwStructure = [
     { season: 1, name: 'Part 1: The Blood Warfare', count: 13 },
     { season: 2, name: 'Part 2: The Separation', count: 13 },
-    { season: 3, name: 'Part 3: The Conflict', count: 14 },
-    { season: 4, name: 'Part 4: The Calamity', count: 13 }
+    { season: 3, name: 'Part 3: The Conflict', count: 14 }
   ];
 
   function getTybwUrl(server, season, ep) {
@@ -4487,13 +4331,11 @@
   function selectTybwEp(season, ep, btn) {
     currentTybwSeason = season;
     currentTybwEp = ep;
-    
     if (!isTybwStarted) {
       startTybwPlayer();
     } else {
       loadTybwEp();
     }
-
     document.querySelectorAll('#tybw-episodes-container button').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
@@ -4501,7 +4343,6 @@
   (function initTybw() {
     const container = document.getElementById('tybw-episodes-container');
     let html = '';
-
     tybwStructure.forEach(s => {
       html += `<div class="season-title">${s.name}</div><div class="ep-grid">`;
       for (let i = 1; i <= s.count; i++) {
@@ -4510,8 +4351,160 @@
       }
       html += `</div>`;
     });
-
     container.innerHTML = html;
+  })();
+</script>
+        
+<style>
+  .csm-card {
+    width: 100%;
+    max-width: 900px;
+    margin: 30px auto 0 auto;
+    background: #141414;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  }
+  .csm-header {
+    padding: 16px 20px;
+    background: #1f1f1f;
+    border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .csm-title { margin: 0; font-size: 20px; font-weight: bold; color: #ff5722; }
+  .csm-subtitle { margin: 4px 0 0 0; font-size: 13px; color: #aaa; }
+  .server-select-csm {
+    background: #2b2b2b;
+    color: #ff5722;
+    border: 1px solid #ff5722;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .player-box {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    background: #000;
+  }
+  .player-box iframe {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%; border: none;
+  }
+  .player-placeholder-csm {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #2a1208 0%, #0a0a0a 100%);
+    z-index: 2;
+  }
+  .start-btn-csm {
+    background: #ff5722;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .start-btn-csm:hover {
+    transform: scale(1.05);
+    background: #ff7043;
+  }
+  .ep-box {
+    padding: 20px;
+    background: #101010;
+    max-height: 250px;
+    overflow-y: auto;
+  }
+  .ep-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ep-grid button {
+    background: #222; color: #ccc; border: 1px solid #444;
+    padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 13px;
+  }
+  .ep-grid button:hover, .ep-grid button.active {
+    background: #ff5722; color: #fff; border-color: #ff5722; font-weight: bold;
+  }
+</style>
+
+<article class="csm-card">
+  <div class="csm-header">
+    <div>
+      <h3 class="csm-title">Chainsaw Man</h3>
+      <p class="csm-subtitle" id="csm-status">Избери епизод за пускане</p>
+    </div>
+    <select class="server-select-csm" id="csm-server" onchange="if(isCsmStarted) loadCsmEp();">
+      <option value="vidlink">Server 1 (Vidlink)</option>
+      <option value="autoembed">Server 2 (Autoembed)</option>
+      <option value="2embed">Server 3 (2Embed)</option>
+    </select>
+  </div>
+
+  <div class="player-box">
+    <div class="player-placeholder-csm" id="csm-placeholder">
+      <button class="start-btn-csm" onclick="startCsmPlayer()">▶ Зареди плейъра (Епизод 1)</button>
+    </div>
+    <iframe id="csm-frame" allowfullscreen referrerpolicy="origin"></iframe>
+  </div>
+
+  <div class="ep-box">
+    <div class="ep-grid" id="csm-grid"></div>
+  </div>
+</article>
+
+<script>
+  let currentCsmEp = 1;
+  let isCsmStarted = false;
+  const csmTmdb = '114410';
+
+  function getCsmUrl(server, ep) {
+    if (server === 'autoembed') return `https://player.autoembed.cc/embed/tv/${csmTmdb}/1/${ep}`;
+    if (server === '2embed') return `https://www.2embed.cc/embedtvfull/${csmTmdb}?s=1&e=${ep}`;
+    return `https://vidlink.pro/tv/${csmTmdb}/1/${ep}`;
+  }
+
+  function startCsmPlayer() {
+    isCsmStarted = true;
+    document.getElementById('csm-placeholder').style.display = 'none';
+    loadCsmEp();
+  }
+
+  function loadCsmEp() {
+    const server = document.getElementById('csm-server').value;
+    document.getElementById('csm-frame').src = getCsmUrl(server, currentCsmEp);
+    document.getElementById('csm-status').innerText = `Episode ${currentCsmEp}`;
+  }
+
+  function selectCsmEp(ep, btn) {
+    currentCsmEp = ep;
+    if (!isCsmStarted) {
+      startCsmPlayer();
+    } else {
+      loadCsmEp();
+    }
+    document.querySelectorAll('#csm-grid button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  (function initCsm() {
+    const grid = document.getElementById('csm-grid');
+    let html = '';
+    for (let i = 1; i <= 12; i++) {
+      html += `<button class="${i === 1 ? 'active' : ''}" onclick="selectCsmEp(${i}, this)">E${i}</button>`;
+    }
+    grid.innerHTML = html;
   })();
 </script>
         
