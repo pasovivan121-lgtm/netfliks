@@ -4362,7 +4362,6 @@
   renderNarutoButtons();
 </script>
 
-<!-- Naruto: Shippuden - Fixed Player Block -->
 <style>
   .player-card {
     width: 100%;
@@ -4372,91 +4371,71 @@
     border-radius: 8px;
     overflow: hidden;
     font-family: Arial, sans-serif;
-    color: #ffffff;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   }
-
   .player-header {
     padding: 16px 20px;
     background: #1f1f1f;
     border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
   }
-
-  .player-title {
-    margin: 0;
-    font-size: 20px;
+  .player-title { margin: 0; font-size: 20px; font-weight: bold; }
+  .player-subtitle { margin: 4px 0 0 0; font-size: 13px; color: #aaa; }
+  .server-select {
+    background: #2b2b2b;
+    color: #ff6600;
+    border: 1px solid #ff6600;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
     font-weight: bold;
   }
-
-  .player-subtitle {
-    margin: 4px 0 0 0;
-    font-size: 13px;
-    color: #aaa;
-  }
-
   .player-container {
     position: relative;
     width: 100%;
     padding-top: 56.25%;
     background: #000;
   }
-
   .player-container iframe {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
+    top: 0; left: 0; width: 100%; height: 100%; border: none;
   }
-
   .episodes-wrapper {
     padding: 20px;
     background: #101010;
-    max-height: 400px;
+    max-height: 350px;
     overflow-y: auto;
   }
-
-  .ep-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
+  .ep-grid { display: flex; flex-wrap: wrap; gap: 8px; }
   .ep-grid button {
-    background: #222;
-    color: #ccc;
-    border: 1px solid #444;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 13px;
-    transition: all 0.2s ease;
+    background: #222; color: #ccc; border: 1px solid #444;
+    padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 13px;
   }
-
   .ep-grid button:hover, .ep-grid button.active {
-    background: #ff6600;
-    color: #000;
-    border-color: #ff6600;
-    font-weight: bold;
+    background: #ff6600; color: #000; border-color: #ff6600; font-weight: bold;
   }
 </style>
 
 <article class="player-card">
   <div class="player-header">
-    <div class="player-title-group">
+    <div>
       <h3 class="player-title">Naruto: Shippuden</h3>
-      <p class="player-subtitle" id="shippuden-status">vidsrc.to • Episode 1</p>
+      <p class="player-subtitle" id="shippuden-status">Episode 1</p>
     </div>
+    <select class="server-select" id="shippuden-server" onchange="changeShippudenServer()">
+      <option value="vidsrc_to">Server 1 (VidSrc.to)</option>
+      <option value="vidsrc_me">Server 2 (VidSrc.me)</option>
+      <option value="embed_su">Server 3 (Embed.su)</option>
+    </select>
   </div>
 
   <div class="player-container">
-    <iframe 
-      id="shippuden-frame"
-      src="https://vidsrc.to/embed/tv/tt0988824/1/1" 
-      allowfullscreen="true"
-      allow="encrypted-media; autoplay">
-    </iframe>
+    <iframe id="shippuden-frame" allowfullscreen allow="encrypted-media; autoplay"></iframe>
   </div>
 
   <div class="episodes-wrapper">
@@ -4465,29 +4444,42 @@
 </article>
 
 <script>
-  function renderShippudenGrid() {
-    const grid = document.getElementById('shippuden-grid');
-    let html = '';
-    // Генерира всички 500 епизода под Season 1 за съвместимост с vidsrc
-    for (let ep = 1; ep <= 500; ep++) {
-      const activeClass = ep === 1 ? 'active' : '';
-      html += `<button class="${activeClass}" onclick="playShippudenAbsolute(${ep}, this)">E${ep}</button>`;
-    }
-    grid.innerHTML = html;
+  let currentShippudenEp = 1;
+  const shippudenTmdb = '31910';
+  const shippudenImdb = 'tt0988824';
+
+  function getShippudenUrl(server, ep) {
+    if (server === 'vidsrc_me') return `https://vidsrc.me/embed/tv?tmdb=${shippudenTmdb}&season=1&episode=${ep}`;
+    if (server === 'embed_su') return `https://embed.su/embed/tv/${shippudenTmdb}/1/${ep}`;
+    return `https://vidsrc.to/embed/tv/${shippudenTmdb}/1/${ep}`;
   }
 
-  function playShippudenAbsolute(episode, btn) {
-    const imdbId = 'tt0988824';
-    // Използва S1 с абсолютния номер на епизода
-    document.getElementById('shippuden-frame').src = `https://vidsrc.to/embed/tv/${imdbId}/1/${episode}`;
-    document.getElementById('shippuden-status').innerText = `vidsrc.to • Episode ${episode}`;
-    
-    const allButtons = document.querySelectorAll('#shippuden-grid button');
-    allButtons.forEach(b => b.classList.remove('active'));
+  function updateShippudenPlayer() {
+    const server = document.getElementById('shippuden-server').value;
+    document.getElementById('shippuden-frame').src = getShippudenUrl(server, currentShippudenEp);
+    document.getElementById('shippuden-status').innerText = `Episode ${currentShippudenEp}`;
+  }
+
+  function playShippudenEp(ep, btn) {
+    currentShippudenEp = ep;
+    updateShippudenPlayer();
+    document.querySelectorAll('#shippuden-grid button').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
 
-  renderShippudenGrid();
+  function changeShippudenServer() {
+    updateShippudenPlayer();
+  }
+
+  (function initShippuden() {
+    const grid = document.getElementById('shippuden-grid');
+    let html = '';
+    for (let i = 1; i <= 500; i++) {
+      html += `<button class="${i === 1 ? 'active' : ''}" onclick="playShippudenEp(${i}, this)">E${i}</button>`;
+    }
+    grid.innerHTML = html;
+    updateShippudenPlayer();
+  })();
 </script>
 
 
