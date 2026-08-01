@@ -4226,6 +4226,31 @@
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%; border: none;
   }
+  .player-placeholder {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #2a1a08 0%, #0a0a0a 100%);
+    z-index: 2;
+  }
+  .start-btn {
+    background: #ff6600;
+    color: #000;
+    border: none;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .start-btn:hover {
+    transform: scale(1.05);
+    background: #ff8533;
+  }
   .ep-box {
     padding: 20px;
     background: #101010;
@@ -4246,16 +4271,19 @@
   <div class="anime-header">
     <div>
       <h3 class="anime-title">Naruto: Shippuden</h3>
-      <p class="anime-subtitle" id="ship-status">Episode 1</p>
+      <p class="anime-subtitle" id="ship-status">Избери епизод за пускане</p>
     </div>
-    <select class="server-select" id="ship-server" onchange="loadShipEp()">
-      <option value="vidlink">Server 1 (Vidlink - Fast)</option>
+    <select class="server-select" id="ship-server" onchange="if(isShipStarted) loadShipEp();">
+      <option value="vidlink">Server 1 (Vidlink)</option>
       <option value="autoembed">Server 2 (Autoembed)</option>
       <option value="2embed">Server 3 (2Embed)</option>
     </select>
   </div>
 
   <div class="player-box">
+    <div class="player-placeholder" id="ship-placeholder">
+      <button class="start-btn" onclick="startShipPlayer()">▶ Зареди плейъра (Епизод 1)</button>
+    </div>
     <iframe id="ship-frame" allowfullscreen referrerpolicy="origin"></iframe>
   </div>
 
@@ -4266,12 +4294,19 @@
 
 <script>
   let currentShipEp = 1;
+  let isShipStarted = false;
   const shipTmdb = '31910';
 
   function getShipUrl(server, ep) {
     if (server === 'autoembed') return `https://player.autoembed.cc/embed/tv/${shipTmdb}/1/${ep}`;
     if (server === '2embed') return `https://www.2embed.cc/embedtvfull/${shipTmdb}?s=1&e=${ep}`;
     return `https://vidlink.pro/tv/${shipTmdb}/1/${ep}`;
+  }
+
+  function startShipPlayer() {
+    isShipStarted = true;
+    document.getElementById('ship-placeholder').style.display = 'none';
+    loadShipEp();
   }
 
   function loadShipEp() {
@@ -4282,7 +4317,11 @@
 
   function selectShipEp(ep, btn) {
     currentShipEp = ep;
-    loadShipEp();
+    if (!isShipStarted) {
+      startShipPlayer();
+    } else {
+      loadShipEp();
+    }
     document.querySelectorAll('#ship-grid button').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
@@ -4294,10 +4333,8 @@
       html += `<button class="${i === 1 ? 'active' : ''}" onclick="selectShipEp(${i}, this)">E${i}</button>`;
     }
     grid.innerHTML = html;
-    loadShipEp();
   })();
 </script>
-
 
         
 <!-- Marvel's Spider-Man - Full Player Block -->
