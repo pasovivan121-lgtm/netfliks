@@ -5215,9 +5215,9 @@
   }
 </script>
         
-<!-- Marvel's Spider-Man (TMDB ID: 72705) - Fixed Player Block -->
+<!-- Marvel's Spider-Man - 2embed Player Block (TMDB ID: 72705) -->
 <style>
-  .player-card {
+  .marvel-spidey-card {
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
@@ -5229,33 +5229,33 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   }
 
-  .player-header {
+  .marvel-spidey-header {
     padding: 16px 20px;
     background: #1f1f1f;
     border-bottom: 1px solid #333;
   }
 
-  .player-title {
+  .marvel-spidey-title {
     margin: 0;
     font-size: 20px;
     font-weight: bold;
-    color: #e50914;
+    color: #00ffcc;
   }
 
-  .player-subtitle {
+  .marvel-spidey-subtitle {
     margin: 4px 0 0 0;
     font-size: 13px;
     color: #aaa;
   }
 
-  .player-container {
+  .marvel-spidey-container {
     position: relative;
     width: 100%;
     padding-top: 56.25%; /* 16:9 Aspect Ratio */
     background: #000;
   }
 
-  .player-container iframe {
+  .marvel-spidey-container iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -5264,32 +5264,32 @@
     border: none;
   }
 
-  .episodes-wrapper {
+  .marvel-spidey-episodes-wrapper {
     padding: 20px;
     background: #101010;
     max-height: 400px;
     overflow-y: auto;
   }
 
-  .season-block {
+  .marvel-spidey-season-block {
     margin-bottom: 20px;
   }
 
-  .season-block h4 {
+  .marvel-spidey-season-block h4 {
     margin: 0 0 10px 0;
     font-size: 15px;
-    color: #e50914;
+    color: #00ffcc;
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
 
-  .ep-grid {
+  .marvel-spidey-ep-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
   }
 
-  .ep-grid button {
+  .marvel-spidey-ep-grid button {
     background: #222;
     color: #ccc;
     border: 1px solid #444;
@@ -5300,138 +5300,122 @@
     transition: all 0.2s ease;
   }
 
-  .ep-grid button:hover, .ep-grid button.active {
-    background: #e50914;
-    color: #fff;
-    border-color: #e50914;
+  .marvel-spidey-ep-grid button:hover, .marvel-spidey-ep-grid button.active {
+    background: #00ffcc;
+    color: #000;
+    border-color: #00ffcc;
     font-weight: bold;
   }
 </style>
 
-<article class="player-card" id="spidey-player-card">
-  <div class="player-header">
-    <div class="player-title-group">
-      <h3 class="player-title">Marvel's Spider-Man</h3>
-      <p class="player-subtitle" id="spidey-status">2embed.online • Season 1 • Episode 1</p>
+<article class="marvel-spidey-card">
+  <div class="marvel-spidey-header">
+    <div class="marvel-spidey-title-group">
+      <h3 class="marvel-spidey-title">Marvel's Spider-Man</h3>
+      <p class="marvel-spidey-subtitle" id="marvel-spidey-status">2embed.online • Season 1 • Episode 1</p>
     </div>
   </div>
 
-  <div class="player-container">
+  <div class="marvel-spidey-container">
     <iframe 
-      id="spidey-frame"
+      id="marvel-spidey-frame"
       src="https://www.2embed.online/embed/tv/72705/1/1" 
       allowfullscreen="true"
       allow="encrypted-media; autoplay">
     </iframe>
   </div>
 
-  <div class="episodes-wrapper">
+  <div class="marvel-spidey-episodes-wrapper">
     <!-- СЕЗОН 1 (26 епизода) -->
-    <div class="season-block">
+    <div class="marvel-spidey-season-block">
       <h4>Season 1</h4>
-      <div class="ep-grid">
-        <button class="active" onclick="playSpideyEp(1, 1, 'Season 1 • Episode 1', this)">E1</button>
-        <button onclick="playSpideyEp(1, 2, 'Season 1 • Episode 2', this)">E2</button>
-        <button onclick="playSpideyEp(1, 3, 'Season 1 • Episode 3', this)">E3</button>
-        <button onclick="playSpideyEp(1, 4, 'Season 1 • Episode 4', this)">E4</button>
-        <button onclick="playSpideyEp(1, 5, 'Season 1 • Episode 5', this)">E5</button>
-        <button onclick="playSpideyEp(1, 6, 'Season 1 • Episode 6', this)">E6</button>
-        <button onclick="playSpideyEp(1, 7, 'Season 1 • Episode 7', this)">E7</button>
-        <button onclick="playSpideyEp(1, 8, 'Season 1 • Episode 8', this)">E8</button>
-        <button onclick="playSpideyEp(1, 9, 'Season 1 • Episode 9', this)">E9</button>
-        <button onclick="playSpideyEp(1, 10, 'Season 1 • Episode 10', this)">E10</button>
-        <button onclick="playSpideyEp(1, 11, 'Season 1 • Episode 11', this)">E11</button>
-        <button onclick="playSpideyEp(1, 12, 'Season 1 • Episode 12', this)">E12</button>
-        <button onclick="playSpideyEp(1, 13, 'Season 1 • Episode 13', this)">E13</button>
-        <button onclick="playSpideyEp(1, 14, 'Season 1 • Episode 14', this)">E14</button>
-        <button onclick="playSpideyEp(1, 15, 'Season 1 • Episode 15', this)">E15</button>
-        <button onclick="playSpideyEp(1, 16, 'Season 1 • Episode 16', this)">E16</button>
-        <button onclick="playSpideyEp(1, 17, 'Season 1 • Episode 17', this)">E17</button>
-        <button onclick="playSpideyEp(1, 18, 'Season 1 • Episode 18', this)">E18</button>
-        <button onclick="playSpideyEp(1, 19, 'Season 1 • Episode 19', this)">E19</button>
-        <button onclick="playSpideyEp(1, 20, 'Season 1 • Episode 20', this)">E20</button>
-        <button onclick="playSpideyEp(1, 21, 'Season 1 • Episode 21', this)">E21</button>
-        <button onclick="playSpideyEp(1, 22, 'Season 1 • Episode 22', this)">E22</button>
-        <button onclick="playSpideyEp(1, 23, 'Season 1 • Episode 23', this)">E23</button>
-        <button onclick="playSpideyEp(1, 24, 'Season 1 • Episode 24', this)">E24</button>
-        <button onclick="playSpideyEp(1, 25, 'Season 1 • Episode 25', this)">E25</button>
-        <button onclick="playSpideyEp(1, 26, 'Season 1 • Episode 26', this)">E26</button>
+      <div class="marvel-spidey-ep-grid">
+        <button class="active" onclick="playMarvelSpideyEp(1, 1, 'Season 1 • Episode 1', this)">E1</button>
+        <button onclick="playMarvelSpideyEp(1, 2, 'Season 1 • Episode 2', this)">E2</button>
+        <button onclick="playMarvelSpideyEp(1, 3, 'Season 1 • Episode 3', this)">E3</button>
+        <button onclick="playMarvelSpideyEp(1, 4, 'Season 1 • Episode 4', this)">E4</button>
+        <button onclick="playMarvelSpideyEp(1, 5, 'Season 1 • Episode 5', this)">E5</button>
+        <button onclick="playMarvelSpideyEp(1, 6, 'Season 1 • Episode 6', this)">E6</button>
+        <button onclick="playMarvelSpideyEp(1, 7, 'Season 1 • Episode 7', this)">E7</button>
+        <button onclick="playMarvelSpideyEp(1, 8, 'Season 1 • Episode 8', this)">E8</button>
+        <button onclick="playMarvelSpideyEp(1, 9, 'Season 1 • Episode 9', this)">E9</button>
+        <button onclick="playMarvelSpideyEp(1, 10, 'Season 1 • Episode 10', this)">E10</button>
+        <button onclick="playMarvelSpideyEp(1, 11, 'Season 1 • Episode 11', this)">E11</button>
+        <button onclick="playMarvelSpideyEp(1, 12, 'Season 1 • Episode 12', this)">E12</button>
+        <button onclick="playMarvelSpideyEp(1, 13, 'Season 1 • Episode 13', this)">E13</button>
+        <button onclick="playMarvelSpideyEp(1, 14, 'Season 1 • Episode 14', this)">E14</button>
+        <button onclick="playMarvelSpideyEp(1, 15, 'Season 1 • Episode 15', this)">E15</button>
+        <button onclick="playMarvelSpideyEp(1, 16, 'Season 1 • Episode 16', this)">E16</button>
+        <button onclick="playMarvelSpideyEp(1, 17, 'Season 1 • Episode 17', this)">E17</button>
+        <button onclick="playMarvelSpideyEp(1, 18, 'Season 1 • Episode 18', this)">E18</button>
+        <button onclick="playMarvelSpideyEp(1, 19, 'Season 1 • Episode 19', this)">E19</button>
+        <button onclick="playMarvelSpideyEp(1, 20, 'Season 1 • Episode 20', this)">E20</button>
+        <button onclick="playMarvelSpideyEp(1, 21, 'Season 1 • Episode 21', this)">E21</button>
+        <button onclick="playMarvelSpideyEp(1, 22, 'Season 1 • Episode 22', this)">E22</button>
+        <button onclick="playMarvelSpideyEp(1, 23, 'Season 1 • Episode 23', this)">E23</button>
+        <button onclick="playMarvelSpideyEp(1, 24, 'Season 1 • Episode 24', this)">E24</button>
+        <button onclick="playMarvelSpideyEp(1, 25, 'Season 1 • Episode 25', this)">E25</button>
+        <button onclick="playMarvelSpideyEp(1, 26, 'Season 1 • Episode 26', this)">E26</button>
       </div>
     </div>
 
     <!-- СЕЗОН 2 (26 епизода) -->
-    <div class="season-block">
+    <div class="marvel-spidey-season-block">
       <h4>Season 2</h4>
-      <div class="ep-grid">
-        <button onclick="playSpideyEp(2, 1, 'Season 2 • Episode 1', this)">E1</button>
-        <button onclick="playSpideyEp(2, 2, 'Season 2 • Episode 2', this)">E2</button>
-        <button onclick="playSpideyEp(2, 3, 'Season 2 • Episode 3', this)">E3</button>
-        <button onclick="playSpideyEp(2, 4, 'Season 2 • Episode 4', this)">E4</button>
-        <button onclick="playSpideyEp(2, 5, 'Season 2 • Episode 5', this)">E5</button>
-        <button onclick="playSpideyEp(2, 6, 'Season 2 • Episode 6', this)">E6</button>
-        <button onclick="playSpideyEp(2, 7, 'Season 2 • Episode 7', this)">E7</button>
-        <button onclick="playSpideyEp(2, 8, 'Season 2 • Episode 8', this)">E8</button>
-        <button onclick="playSpideyEp(2, 9, 'Season 2 • Episode 9', this)">E9</button>
-        <button onclick="playSpideyEp(2, 10, 'Season 2 • Episode 10', this)">E10</button>
-        <button onclick="playSpideyEp(2, 11, 'Season 2 • Episode 11', this)">E11</button>
-        <button onclick="playSpideyEp(2, 12, 'Season 2 • Episode 12', this)">E12</button>
-        <button onclick="playSpideyEp(2, 13, 'Season 2 • Episode 13', this)">E13</button>
-        <button onclick="playSpideyEp(2, 14, 'Season 2 • Episode 14', this)">E14</button>
-        <button onclick="playSpideyEp(2, 15, 'Season 2 • Episode 15', this)">E15</button>
-        <button onclick="playSpideyEp(2, 16, 'Season 2 • Episode 16', this)">E16</button>
-        <button onclick="playSpideyEp(2, 17, 'Season 2 • Episode 17', this)">E17</button>
-        <button onclick="playSpideyEp(2, 18, 'Season 2 • Episode 18', this)">E18</button>
-        <button onclick="playSpideyEp(2, 19, 'Season 2 • Episode 19', this)">E19</button>
-        <button onclick="playSpideyEp(2, 20, 'Season 2 • Episode 20', this)">E20</button>
-        <button onclick="playSpideyEp(2, 21, 'Season 2 • Episode 21', this)">E21</button>
-        <button onclick="playSpideyEp(2, 22, 'Season 2 • Episode 22', this)">E22</button>
-        <button onclick="playSpideyEp(2, 23, 'Season 2 • Episode 23', this)">E23</button>
-        <button onclick="playSpideyEp(2, 24, 'Season 2 • Episode 24', this)">E24</button>
-        <button onclick="playSpideyEp(2, 25, 'Season 2 • Episode 25', this)">E25</button>
-        <button onclick="playSpideyEp(2, 26, 'Season 2 • Episode 26', this)">E26</button>
+      <div class="marvel-spidey-ep-grid">
+        <button onclick="playMarvelSpideyEp(2, 1, 'Season 2 • Episode 1', this)">E1</button>
+        <button onclick="playMarvelSpideyEp(2, 2, 'Season 2 • Episode 2', this)">E2</button>
+        <button onclick="playMarvelSpideyEp(2, 3, 'Season 2 • Episode 3', this)">E3</button>
+        <button onclick="playMarvelSpideyEp(2, 4, 'Season 2 • Episode 4', this)">E4</button>
+        <button onclick="playMarvelSpideyEp(2, 5, 'Season 2 • Episode 5', this)">E5</button>
+        <button onclick="playMarvelSpideyEp(2, 6, 'Season 2 • Episode 6', this)">E6</button>
+        <button onclick="playMarvelSpideyEp(2, 7, 'Season 2 • Episode 7', this)">E7</button>
+        <button onclick="playMarvelSpideyEp(2, 8, 'Season 2 • Episode 8', this)">E8</button>
+        <button onclick="playMarvelSpideyEp(2, 9, 'Season 2 • Episode 9', this)">E9</button>
+        <button onclick="playMarvelSpideyEp(2, 10, 'Season 2 • Episode 10', this)">E10</button>
+        <button onclick="playMarvelSpideyEp(2, 11, 'Season 2 • Episode 11', this)">E11</button>
+        <button onclick="playMarvelSpideyEp(2, 12, 'Season 2 • Episode 12', this)">E12</button>
+        <button onclick="playMarvelSpideyEp(2, 13, 'Season 2 • Episode 13', this)">E13</button>
+        <button onclick="playMarvelSpideyEp(2, 14, 'Season 2 • Episode 14', this)">E14</button>
+        <button onclick="playMarvelSpideyEp(2, 15, 'Season 2 • Episode 15', this)">E15</button>
+        <button onclick="playMarvelSpideyEp(2, 16, 'Season 2 • Episode 16', this)">E16</button>
+        <button onclick="playMarvelSpideyEp(2, 17, 'Season 2 • Episode 17', this)">E17</button>
+        <button onclick="playMarvelSpideyEp(2, 18, 'Season 2 • Episode 18', this)">E18</button>
+        <button onclick="playMarvelSpideyEp(2, 19, 'Season 2 • Episode 19', this)">E19</button>
+        <button onclick="playMarvelSpideyEp(2, 20, 'Season 2 • Episode 20', this)">E20</button>
+        <button onclick="playMarvelSpideyEp(2, 21, 'Season 2 • Episode 21', this)">E21</button>
+        <button onclick="playMarvelSpideyEp(2, 22, 'Season 2 • Episode 22', this)">E22</button>
+        <button onclick="playMarvelSpideyEp(2, 23, 'Season 2 • Episode 23', this)">E23</button>
+        <button onclick="playMarvelSpideyEp(2, 24, 'Season 2 • Episode 24', this)">E24</button>
+        <button onclick="playMarvelSpideyEp(2, 25, 'Season 2 • Episode 25', this)">E25</button>
+        <button onclick="playMarvelSpideyEp(2, 26, 'Season 2 • Episode 26', this)">E26</button>
       </div>
     </div>
 
     <!-- СЕЗОН 3: MAXIMUM VENOM (6 епизода) -->
-    <div class="season-block">
+    <div class="marvel-spidey-season-block">
       <h4>Season 3 (Maximum Venom)</h4>
-      <div class="ep-grid">
-        <button onclick="playSpideyEp(3, 1, 'Season 3 • Episode 1', this)">E1</button>
-        <button onclick="playSpideyEp(3, 2, 'Season 3 • Episode 2', this)">E2</button>
-        <button onclick="playSpideyEp(3, 3, 'Season 3 • Episode 3', this)">E3</button>
-        <button onclick="playSpideyEp(3, 4, 'Season 3 • Episode 4', this)">E4</button>
-        <button onclick="playSpideyEp(3, 5, 'Season 3 • Episode 5', this)">E5</button>
-        <button onclick="playSpideyEp(3, 6, 'Season 3 • Episode 6', this)">E6</button>
+      <div class="marvel-spidey-ep-grid">
+        <button onclick="playMarvelSpideyEp(3, 1, 'Season 3 • Episode 1', this)">E1</button>
+        <button onclick="playMarvelSpideyEp(3, 2, 'Season 3 • Episode 2', this)">E2</button>
+        <button onclick="playMarvelSpideyEp(3, 3, 'Season 3 • Episode 3', this)">E3</button>
+        <button onclick="playMarvelSpideyEp(3, 4, 'Season 3 • Episode 4', this)">E4</button>
+        <button onclick="playMarvelSpideyEp(3, 5, 'Season 3 • Episode 5', this)">E5</button>
+        <button onclick="playMarvelSpideyEp(3, 6, 'Season 3 • Episode 6', this)">E6</button>
       </div>
     </div>
   </div>
 </article>
 
 <script>
-  function playSpideyEp(season, episode, titleText, btn) {
-    var tmdbId = '72705';
-    var frame = document.getElementById('spidey-frame');
-    var status = document.getElementById('spidey-status');
+  function playMarvelSpideyEp(season, episode, titleText, btn) {
+    const tmdbId = '72705';
+    document.getElementById('marvel-spidey-frame').src = `https://www.2embed.online/embed/tv/${tmdbId}/${season}/${episode}`;
+    document.getElementById('marvel-spidey-status').innerText = `2embed.online • ${titleText}`;
     
-    if (frame) {
-      frame.src = 'https://www.2embed.online/embed/tv/' + tmdbId + '/' + season + '/' + episode;
-    }
-    if (status) {
-      status.innerText = '2embed.online • ' + titleText;
-    }
-
-    // Изолирано премахване на 'active' класа само от бутоните в този плеър
-    var card = document.getElementById('spidey-player-card');
-    if (card) {
-      var buttons = card.querySelectorAll('.ep-grid button');
-      buttons.forEach(function(b) {
-        b.classList.remove('active');
-      });
-    }
-
-    if (btn) {
-      btn.classList.add('active');
-    }
+    const allButtons = document.querySelectorAll('.marvel-spidey-ep-grid button');
+    allButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
   }
 </script>
 <!-- Spider-Noir - Full Player Block (Hidden by Default) -->
