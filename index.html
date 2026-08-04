@@ -5185,7 +5185,7 @@
   }
 </script>
         
-<!-- Marvel's Spider-Man - Fixed for 2embed (TMDB ID: 72710) -->
+<!-- Marvel's Spider-Man - Multi-Server Player Block -->
 <style>
   .player-card {
     width: 100%;
@@ -5203,18 +5203,46 @@
     padding: 16px 20px;
     background: #1f1f1f;
     border-bottom: 1px solid #333;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
   }
 
   .player-title {
     margin: 0;
     font-size: 20px;
     font-weight: bold;
+    color: #e50914;
   }
 
   .player-subtitle {
     margin: 4px 0 0 0;
     font-size: 13px;
     color: #aaa;
+  }
+
+  .server-selector {
+    display: flex;
+    gap: 6px;
+  }
+
+  .server-btn {
+    background: #2a2a2a;
+    color: #ccc;
+    border: 1px solid #444;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s;
+  }
+
+  .server-btn:hover, .server-btn.active {
+    background: #e50914;
+    color: #fff;
+    border-color: #e50914;
   }
 
   .player-container {
@@ -5269,13 +5297,7 @@
     transition: all 0.2s ease;
   }
 
-  .ep-grid button:hover {
-    background: #e50914;
-    color: #fff;
-    border-color: #e50914;
-  }
-
-  .ep-grid button.active {
+  .ep-grid button:hover, .ep-grid button.active {
     background: #e50914;
     color: #fff;
     border-color: #e50914;
@@ -5287,15 +5309,22 @@
   <div class="player-header">
     <div class="player-title-group">
       <h3 class="player-title">Marvel's Spider-Man</h3>
-      <p class="player-subtitle" id="spidey-status">2embed.online • Season 1 • Episode 1</p>
+      <p class="player-subtitle" id="spidey-status">Server 1 • Season 1 • Episode 1</p>
+    </div>
+    <div class="server-selector">
+      <button class="server-btn active" onclick="changeServer(1, this)">Server 1 (vidsrc.icu)</button>
+      <button class="server-btn" onclick="changeServer(2, this)">Server 2 (2embed)</button>
+      <button class="server-btn" onclick="changeServer(3, this)">Server 3 (vidsrc.cc)</button>
+      <button class="server-btn" onclick="changeServer(4, this)">Server 4 (vidsrc.me)</button>
     </div>
   </div>
 
   <div class="player-container">
     <iframe 
       id="spidey-frame"
-      src="https://www.2embed.online/embed/tv/72710/1/1" 
+      src="https://vidsrc.icu/embed/tv/tt6135682/1/1" 
       allowfullscreen="true"
+      referrerpolicy="origin"
       allow="encrypted-media; autoplay">
     </iframe>
   </div>
@@ -5383,13 +5412,53 @@
 </article>
 
 <script>
+  let currentSeason = 1;
+  let currentEpisode = 1;
+  let currentTitle = 'Season 1 • Episode 1';
+  let currentServer = 1;
+
+  const imdbId = 'tt6135682';
+  const tmdbId = '72710';
+
+  function getEmbedUrl(server, season, ep) {
+    switch (server) {
+      case 1:
+        return `https://vidsrc.icu/embed/tv/${imdbId}/${season}/${ep}`;
+      case 2:
+        return `https://www.2embed.online/embed/tv/${tmdbId}/${season}/${ep}`;
+      case 3:
+        return `https://vidsrc.cc/v2/embed/tv/${imdbId}/${season}/${ep}`;
+      case 4:
+        return `https://vidsrc.me/embed/tv?imdb=${imdbId}&season=${season}&episode=${ep}`;
+      default:
+        return `https://vidsrc.icu/embed/tv/${imdbId}/${season}/${ep}`;
+    }
+  }
+
+  function updatePlayer() {
+    const frame = document.getElementById('spidey-frame');
+    frame.src = getEmbedUrl(currentServer, currentSeason, currentEpisode);
+    document.getElementById('spidey-status').innerText = `Server ${currentServer} • ${currentTitle}`;
+  }
+
   function playSpideyEp(season, episode, titleText, btn) {
-    const tmdbId = '72710';
-    document.getElementById('spidey-frame').src = `https://www.2embed.online/embed/tv/${tmdbId}/${season}/${episode}`;
-    document.getElementById('spidey-status').innerText = `2embed.online • ${titleText}`;
+    currentSeason = season;
+    currentEpisode = episode;
+    currentTitle = titleText;
     
+    updatePlayer();
+
     const allButtons = document.querySelectorAll('.ep-grid button');
     allButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  function changeServer(serverNum, btn) {
+    currentServer = serverNum;
+    updatePlayer();
+
+    const allServerBtns = document.querySelectorAll('.server-btn');
+    allServerBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
 </script>
