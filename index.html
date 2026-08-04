@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Netfliks - Stream Movies & Series</title>
+  <title>netFLIKS - Stream Movies & Series</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -251,6 +251,42 @@
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     }
 
+    /* ===== NEW LOGO STYLES ===== */
+    .logo-container {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      padding: 4px 0;
+    }
+
+    .netfliks-logo {
+      width: 180px;
+      height: auto;
+      display: block;
+      transition: filter 0.3s ease, transform 0.3s ease;
+    }
+
+    .logo-text {
+      fill: #E50914;
+      transition: fill 0.3s ease;
+    }
+
+    .logo-container:hover .netfliks-logo {
+      filter: drop-shadow(0 0 8px #E50914) drop-shadow(0 0 16px #E50914) drop-shadow(0 0 24px #E50914);
+      transform: scale(1.02);
+    }
+
+    .logo-container:hover .logo-text {
+      fill: #ff1a1a;
+    }
+
+    .logo-container:focus-visible {
+      outline: 2px solid #E50914;
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    /* Keep old logo styles for reference but they won't be used */
     .netflix-logo {
       font-size: 28px;
       font-weight: 800;
