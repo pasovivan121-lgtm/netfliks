@@ -5215,7 +5215,7 @@
   }
 </script>
         
-<!-- Marvel's Spider-Man (TMDB ID: 72705) - Full Player Block -->
+<!-- Marvel's Spider-Man (TMDB ID: 72705) - Fixed Player Block -->
 <style>
   .player-card {
     width: 100%;
@@ -5308,7 +5308,7 @@
   }
 </style>
 
-<article class="player-card">
+<article class="player-card" id="spidey-player-card">
   <div class="player-header">
     <div class="player-title-group">
       <h3 class="player-title">Marvel's Spider-Man</h3>
@@ -5409,13 +5409,29 @@
 
 <script>
   function playSpideyEp(season, episode, titleText, btn) {
-    const tmdbId = '72705';
-    document.getElementById('spidey-frame').src = `https://www.2embed.online/embed/tv/${tmdbId}/${season}/${episode}`;
-    document.getElementById('spidey-status').innerText = `2embed.online • ${titleText}`;
+    var tmdbId = '72705';
+    var frame = document.getElementById('spidey-frame');
+    var status = document.getElementById('spidey-status');
     
-    const allButtons = document.querySelectorAll('.ep-grid button');
-    allButtons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+    if (frame) {
+      frame.src = 'https://www.2embed.online/embed/tv/' + tmdbId + '/' + season + '/' + episode;
+    }
+    if (status) {
+      status.innerText = '2embed.online • ' + titleText;
+    }
+
+    // Изолирано премахване на 'active' класа само от бутоните в този плеър
+    var card = document.getElementById('spidey-player-card');
+    if (card) {
+      var buttons = card.querySelectorAll('.ep-grid button');
+      buttons.forEach(function(b) {
+        b.classList.remove('active');
+      });
+    }
+
+    if (btn) {
+      btn.classList.add('active');
+    }
   }
 </script>
 <!-- Spider-Noir - Full Player Block (Hidden by Default) -->
