@@ -5185,7 +5185,7 @@
   }
 </script>
         
-<!-- Marvel's Spider-Man - Full Player Block -->
+<!-- Marvel's Spider-Man - Fixed for 2embed (TMDB ID: 72710) -->
 <style>
   .player-card {
     width: 100%;
@@ -5294,7 +5294,7 @@
   <div class="player-container">
     <iframe 
       id="spidey-frame"
-      src="https://www.2embed.online/embed/tv/tt6135682/1/1" 
+      src="https://www.2embed.online/embed/tv/72710/1/1" 
       allowfullscreen="true"
       allow="encrypted-media; autoplay">
     </iframe>
@@ -5384,8 +5384,8 @@
 
 <script>
   function playSpideyEp(season, episode, titleText, btn) {
-    const imdbId = 'tt6135682';
-    document.getElementById('spidey-frame').src = `https://www.2embed.online/embed/tv/${imdbId}/${season}/${episode}`;
+    const tmdbId = '72710';
+    document.getElementById('spidey-frame').src = `https://www.2embed.online/embed/tv/${tmdbId}/${season}/${episode}`;
     document.getElementById('spidey-status').innerText = `2embed.online • ${titleText}`;
     
     const allButtons = document.querySelectorAll('.ep-grid button');
