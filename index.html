@@ -2015,6 +2015,147 @@
       background: rgba(229, 9, 20, 0.3);
       color: var(--netflix-white);
     }
+
+    /* ===== CONSOLIDATED EPISODE SWITCHER & PLAYER STYLES ===== */
+    .episodes-wrapper, .ep-box, .marvel-spidey-episodes-wrapper {
+      padding: 20px;
+      background: #101010;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    .season-block, .marvel-spidey-season-block {
+      margin-bottom: 20px;
+    }
+
+    .season-block h4, .marvel-spidey-season-block h4 {
+      margin: 0 0 10px 0;
+      font-size: 15px;
+      color: var(--netflix-red);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .ep-grid, .marvel-spidey-ep-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .ep-grid button, .marvel-spidey-ep-grid button {
+      background: #222;
+      color: #ccc;
+      border: 1px solid #444;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: all 0.2s ease;
+    }
+
+    .ep-grid button:hover,
+    .ep-grid button.active,
+    .marvel-spidey-ep-grid button:hover,
+    .marvel-spidey-ep-grid button.active {
+      background: var(--netflix-red);
+      color: #fff;
+      border-color: var(--netflix-red);
+      font-weight: bold;
+    }
+
+    .player-card-hidden {
+      display: none;
+    }
+
+    .csm-card, .anime-card, .marvel-spidey-card {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--netflix-card);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--netflix-border);
+    }
+
+    .csm-header, .anime-header, .marvel-spidey-header {
+      padding: 16px 20px;
+      background: #1f1f1f;
+      border-bottom: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .csm-title, .anime-title, .marvel-spidey-title {
+      margin: 0;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .csm-subtitle, .anime-subtitle, .marvel-spidey-subtitle {
+      margin: 4px 0 0 0;
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    .server-select, .server-select-csm {
+      background: #2b2b2b;
+      color: var(--netflix-red);
+      border: 1px solid var(--netflix-red);
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .player-box {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: #000;
+    }
+
+    .player-box iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .player-placeholder, .player-placeholder-csm {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle, #2a1208 0%, #0a0a0a 100%);
+      z-index: 2;
+    }
+
+    .start-btn, .start-btn-csm {
+      background: var(--netflix-red);
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .start-btn:hover, .start-btn-csm:hover {
+      transform: scale(1.05);
+      background: var(--netflix-red-hover);
+    }
   </style>
 </head>
 <body>
@@ -2153,7 +2294,7 @@
         <a href="#" class="section-link">View All →</a>
       </div>
       <div class="movies-grid" role="list">
-        <article class="movie-card" role="listitem" tabindex="0" data-video-src="https://vidsrc.to/embed/movie/569094" data-title="Spider-Man: Across the Spider-Verse" data-year="2023" data-duration="2h 20m" data-rating="8.6">
+        <article class="movie-card" role="listitem" tabindex="0" data-video-src="https://www.2embed.cc/embed/569094" data-title="Spider-Man: Across the Spider-Verse" data-year="2023" data-duration="2h 20m" data-rating="8.6">
           <img class="movie-card-poster" src="https://image.tmdb.org/t/p/w500/7BqJlxECNW8K7rLmFY9YQV7QJ9K.jpg" alt="Spider-Man: Across the Spider-Verse" loading="lazy">
           <div class="movie-card-overlay">
             <div class="movie-card-overlay-content">
@@ -2195,7 +2336,7 @@
             </div>
           </div>
         </article>
-        <article class="movie-card" role="listitem" tabindex="0" data-video-src="https://vidsrc.to/embed/movie/324857" data-title="Spider-Man: Into the Spider-Verse" data-year="2018" data-duration="1h 57m" data-rating="8.4">
+        <article class="movie-card" role="listitem" tabindex="0" data-video-src="https://www.2embed.cc/embed/324857" data-title="Spider-Man: Into the Spider-Verse" data-year="2018" data-duration="1h 57m" data-rating="8.4">
           <img class="movie-card-poster" src="https://image.tmdb.org/t/p/w500/rsp6yYBQdF5qUqoQrQYQYQYQYQY.jpg" alt="Spider-Man: Into the Spider-Verse" loading="lazy">
           <div class="movie-card-overlay">
             <div class="movie-card-overlay-content">
@@ -2237,7 +2378,7 @@
             </div>
           </div>
         </article>
-        <article class="movie-card" role="listitem" tabindex="0" data-video-src="https://vidsrc.to/embed/movie/76600" data-title="Avatar: The Way of Water" data-year="2022" data-duration="3h 12m" data-rating="7.6">
+        <article class="movie-card" role="listitem" tabindex="0" data-video-src="https://www.2embed.cc/embed/76600" data-title="Avatar: The Way of Water" data-year="2022" data-duration="3h 12m" data-rating="7.6">
           <img class="movie-card-poster" src="https://image.tmdb.org/t/p/w500/7BqJlxECNW8K7rLmFY9YQV7QJ9K.jpg" alt="Avatar: The Way of Water" loading="lazy">
           <div class="movie-card-overlay">
             <div class="movie-card-overlay-content">
@@ -2279,7 +2420,7 @@
             </div>
           </div>
         </article>
-        <article class="movie-card" role="listitem" tabindex="0" data-video-src="https://vidsrc.to/embed/movie/980431" data-title="Avatar" data-year="2009" data-duration="2h 42m" data-rating="7.8">
+        <article class="movie-card" role="listitem" tabindex="0" data-video-src="https://www.2embed.cc/embed/980431" data-title="Avatar" data-year="2009" data-duration="2h 42m" data-rating="7.8">
           <img class="movie-card-poster" src="https://image.tmdb.org/t/p/w500/7BqJlxECNW8K7rLmFY9YQV7QJ9K.jpg" alt="Avatar" loading="lazy">
           <div class="movie-card-overlay">
             <div class="movie-card-overlay-content">
@@ -2337,7 +2478,7 @@
           </div>
           <div class="player-container">
             <div class="pop-shield" onclick="this.style.display='none'"></div>
-            <iframe src="https://vidsrc.to/embed/movie/tt22084616" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
+            <iframe src="https://www.2embed.cc/embed/tt22084616" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
           </div>
         </article>
 <article class="player-card">
@@ -2346,9 +2487,9 @@
     <p class="player-subtitle">Provider 1 • 1080p • English</p>
   </div>
   <div class="player-container">
-    <!-- Работещ алтернативен плейър (с TMDB ID 76600) -->
+    <!-- Working alternate player (TMDB ID: 76600) -->
     <iframe 
-      src="https://vidsrc.to/embed/movie/76600" 
+      src="https://www.2embed.cc/embed/76600" 
       width="100%" 
       height="100%" 
       frameborder="0" 
@@ -2364,9 +2505,9 @@
     <p class="player-subtitle">Provider 1 • 1080p • English</p>
   </div>
   <div class="player-container">
-    <!-- Работещ алтернативен плейър (с TMDB ID 76600) -->
+    <!-- Working alternate player (TMDB ID: 76600) -->
     <iframe 
-      src="https://vidsrc.to/embed/movie/tt3858372" 
+      src="https://www.2embed.cc/embed/tt3858372" 
       width="100%" 
       height="100%" 
       frameborder="0" 
@@ -2382,9 +2523,9 @@
     <p class="player-subtitle">Provider 1 • 1080p • English</p>
   </div>
   <div class="player-container">
-    <!-- Работещ алтернативен плейър (с TMDB ID 76600) -->
+    <!-- Working alternate player (TMDB ID: 76600) -->
     <iframe 
-      src="https://vidsrc.to/embed/movie/tt6718170" 
+      src="https://www.2embed.cc/embed/tt6718170" 
       width="100%" 
       height="100%" 
       frameborder="0" 
@@ -2393,7 +2534,6 @@
       allow="encrypted-media; autoplay">
     </iframe>
   </div>
-</article>
 </article>
 <article class="player-card">
   <div class="player-header">
@@ -2401,9 +2541,9 @@
     <p class="player-subtitle">Provider 1 • 1080p • English</p>
   </div>
   <div class="player-container">
-    <!-- Работещ алтернативен плейър (с TMDB ID 76600) -->
+    <!-- Working alternate player (TMDB ID: 76600) -->
     <iframe 
-      src="https://vidsrc.to/embed/movie/tt28650488" 
+      src="https://www.2embed.cc/embed/tt28650488" 
       width="100%" 
       height="100%" 
       frameborder="0" 
@@ -2415,13 +2555,13 @@
 </article>
 <article class="player-card">
   <div class="player-header">
-    <h3 class="player-title">Toy Story 5/h3>
+    <h3 class="player-title">Toy Story 5</h3>
     <p class="player-subtitle">Provider 1 • 1080p • English</p>
   </div>
   <div class="player-container">
-    <!-- Работещ алтернативен плейър (с TMDB ID 76600) -->
+    <!-- Working alternate player (TMDB ID: 76600) -->
     <iframe 
-      src="https://vidsrc.to/embed/movie/tt29355505" 
+      src="https://www.2embed.cc/embed/tt29355505" 
       width="100%" 
       height="100%" 
       frameborder="0" 
@@ -2437,9 +2577,9 @@
     <p class="player-subtitle">Provider 1 • 1080p • English</p>
   </div>
   <div class="player-container">
-    <!-- Работещ алтернативен плейър (с TMDB ID 76600) -->
+    <!-- Working alternate player (TMDB ID: 76600) -->
     <iframe 
-      src="https://vidsrc.to/embed/movie/tt26657236" 
+      src="https://www.2embed.cc/embed/tt26657236" 
       width="100%" 
       height="100%" 
       frameborder="0" 
@@ -2455,9 +2595,9 @@
     <p class="player-subtitle">Provider 1 • 1080p • English</p>
   </div>
   <div class="player-container">
-    <!-- Работещ алтернативен плейър (с TMDB ID 76600) -->
+    <!-- Working alternate player (TMDB ID: 76600) -->
     <iframe 
-      src="https://vidsrc.to/embed/movie/tt11378946" 
+      src="https://www.2embed.cc/embed/tt11378946" 
       width="100%" 
       height="100%" 
       frameborder="0" 
@@ -2473,9 +2613,9 @@
     <p class="player-subtitle">Provider 1 • 1080p • English</p>
   </div>
   <div class="player-container">
-    <!-- Работещ алтернативен плейър (с TMDB ID 76600) -->
+    <!-- Working alternate player (TMDB ID: 76600) -->
     <iframe 
-      src="https://vidsrc.to/embed/movie/tt32890033" 
+      src="https://www.2embed.cc/embed/tt32890033" 
       width="100%" 
       height="100%" 
       frameborder="0" 
@@ -2492,7 +2632,7 @@
   </div>
   <div class="player-container">
     <iframe 
-      src="https://vidsrc.to/embed/movie/tt0293429" 
+      src="https://www.2embed.cc/embed/tt0293429" 
       width="100%" 
       height="100%" 
       frameborder="0" 
@@ -2509,7 +2649,7 @@
   </div>
   <div class="player-container">
     <iframe 
-      src="https://vidsrc.to/embed/movie/tt17490712" 
+      src="https://www.2embed.cc/embed/tt17490712" 
       width="100%" 
       height="100%" 
       frameborder="0" 
@@ -2525,9 +2665,9 @@
     <p class="player-subtitle">Provider 1 • 1080p • English</p>
   </div>
   <div class="player-container">
-    <!-- Работещ алтернативен плейър (с TMDB ID 76600) -->
+    <!-- Working alternate player (TMDB ID: 76600) -->
     <iframe 
-      src="https://vidsrc.to/embed/movie/980431" 
+      src="https://www.2embed.cc/embed/980431" 
       width="100%" 
       height="100%" 
       frameborder="0" 
@@ -2545,7 +2685,7 @@
   </div>
   <div class="player-container">
     <iframe 
-      src="https://vidsrc.to/embed/movie/324857" 
+      src="https://www.2embed.cc/embed/324857" 
       width="100%" 
       height="100%" 
       frameborder="0" 
@@ -2563,7 +2703,7 @@
   </div>
   <div class="player-container">
     <iframe 
-      src="https://vidsrc.to/embed/movie/569094" 
+      src="https://www.2embed.cc/embed/569094" 
       width="100%" 
       height="100%" 
       frameborder="0" 
@@ -2582,7 +2722,7 @@
   </div>
   <div class="player-container">
     <iframe 
-      src="https://vidsrc.to/embed/movie/888" 
+      src="https://www.2embed.cc/embed/888" 
       width="100%" 
       height="100%" 
       frameborder="0" 
@@ -2592,6 +2732,30 @@
     </iframe>
   </div>
 </article>
+
+<script>
+  function updateEpisodePlayer(frameId, statusId, imdbId, season, episode, titleText, btn) {
+    const frame = document.getElementById(frameId);
+    if (frame) {
+      frame.src = `https://www.2embed.cc/embedtv/${imdbId}&s=${season}&e=${episode}`;
+    }
+
+    const status = document.getElementById(statusId);
+    if (status) {
+      status.textContent = `2embed • ${titleText}`;
+    }
+
+    const playerCard = btn && btn.closest('.player-card');
+    const buttons = playerCard
+      ? playerCard.querySelectorAll('.ep-grid button')
+      : document.querySelectorAll('.ep-grid button');
+
+    buttons.forEach((button) => button.classList.remove('active'));
+    if (btn) {
+      btn.classList.add('active');
+    }
+  }
+</script>
 <!-- The Spectacular Spider-Man - Full Player Block -->
 <style>
   .player-card {
