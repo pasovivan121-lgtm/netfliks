@@ -2859,21 +2859,21 @@
   <div class="player-header">
     <div class="player-title-group">
       <h3 class="player-title">The Spectacular Spider-Man</h3>
-      <p class="player-subtitle" id="spidey-status">vidsrc.to • Season 1 • Episode 1</p>
+      <p class="player-subtitle" id="spidey-status">2embed • Season 1 • Episode 1</p>
     </div>
   </div>
 
   <div class="player-container">
     <iframe 
       id="spidey-frame"
-      src="https://vidsrc.to/embed/tv/3854/1/1" 
+      src="https://www.2embed.cc/embedtv/3854&s=1&e=1" 
       allowfullscreen="true"
       allow="encrypted-media; autoplay">
     </iframe>
   </div>
 
   <div class="episodes-wrapper">
-    <!-- СЕЗОН 1 (13 епизода) -->
+    <!-- SEASON 1 (13 епизода) -->
     <div class="season-block">
       <h4>Season 1</h4>
       <div class="ep-grid">
@@ -2893,7 +2893,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 2 (13 епизода) -->
+    <!-- SEASON 2 (13 епизода) -->
     <div class="season-block">
       <h4>Season 2</h4>
       <div class="ep-grid">
@@ -2918,10 +2918,11 @@
 <script>
   function playSpideyEp(season, episode, titleText, btn) {
     const imdbId = 'tt0976192';
-    document.getElementById('spidey-frame').src = `https://vidsrc.to/embed/tv/${imdbId}/${season}/${episode}`;
-    document.getElementById('spidey-status').innerText = `vidsrc.to • ${titleText}`;
+    document.getElementById('spidey-frame').src = `https://www.2embed.cc/embedtv/${imdbId}&s=${season}&e=${episode}`;
+    document.getElementById('spidey-status').innerText = `2embed • ${titleText}`;
     
-    const allButtons = document.querySelectorAll('.ep-grid button');
+    const playerCard = btn && btn.closest('.player-card');
+    const allButtons = playerCard ? playerCard.querySelectorAll('.ep-grid button') : document.querySelectorAll('.ep-grid button');
     allButtons.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
@@ -3028,21 +3029,21 @@
   <div class="player-header">
     <div class="player-title-group">
       <h3 class="player-title">Avatar: The Last Airbender</h3>
-      <p class="player-subtitle" id="avatar-status">vidsrc.to • Book 1 • Episode 1</p>
+      <p class="player-subtitle" id="avatar-status">2embed • Book 1 • Episode 1</p>
     </div>
   </div>
 
   <div class="player-container">
     <iframe 
       id="avatar-frame"
-      src="https://vidsrc.to/embed/tv/tt0417299/1/1" 
+      src="https://www.2embed.cc/embedtv/tt0417299&s=1&e=1" 
       allowfullscreen="true"
       allow="encrypted-media; autoplay">
     </iframe>
   </div>
 
   <div class="episodes-wrapper">
-    <!-- КНИГА 1: ВОДА (20 епизода) -->
+    <!-- BOOK 1: WATER (20 епизода) -->
     <div class="season-block">
       <h4>Book 1: Water (Сезон 1)</h4>
       <div class="ep-grid">
@@ -3069,7 +3070,7 @@
       </div>
     </div>
 
-    <!-- КНИГА 2: ЗЕМЯ (20 епизода) -->
+    <!-- BOOK 2: EARTH (20 епизода) -->
     <div class="season-block">
       <h4>Book 2: Earth (Сезон 2)</h4>
       <div class="ep-grid">
@@ -3096,7 +3097,7 @@
       </div>
     </div>
 
-    <!-- КНИГА 3: ОГЪН (21 епизода) -->
+    <!-- BOOK 3: FIRE (21 епизода) -->
     <div class="season-block">
       <h4>Book 3: Fire (Сезон 3)</h4>
       <div class="ep-grid">
@@ -3130,13 +3131,14 @@
   function playEp(season, episode, titleText, btn) {
     // Смяна на URL адрес в плейъра
     const imdbId = 'tt0417299';
-    document.getElementById('avatar-frame').src = `https://vidsrc.to/embed/tv/${imdbId}/${season}/${episode}`;
+    document.getElementById('avatar-frame').src = `https://www.2embed.cc/embedtv/${imdbId}&s=${season}&e=${episode}`;
     
     // Обновяване на заглавието
-    document.getElementById('avatar-status').innerText = `vidsrc.to • ${titleText}`;
+    document.getElementById('avatar-status').innerText = `2embed • ${titleText}`;
     
     // Премахване на 'active' клас от всички бутони и добавяне към натиснатия
-    const allButtons = document.querySelectorAll('.ep-grid button');
+    const playerCard = btn && btn.closest('.player-card');
+    const allButtons = playerCard ? playerCard.querySelectorAll('.ep-grid button') : document.querySelectorAll('.ep-grid button');
     allButtons.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
@@ -3243,21 +3245,21 @@
   <div class="player-header">
     <div class="player-title-group">
       <h3 class="player-title">Ted Lasso</h3>
-      <p class="player-subtitle" id="ted-status">vidsrc.to • Season 1 • Episode 1</p>
+      <p class="player-subtitle" id="ted-status">2embed • Season 1 • Episode 1</p>
     </div>
   </div>
 
   <div class="player-container">
     <iframe 
       id="ted-frame"
-      src="https://vidsrc.to/embed/tv/tt10986410/1/1" 
+      src="https://www.2embed.cc/embedtv/tt10986410&s=1&e=1" 
       allowfullscreen="true"
       allow="encrypted-media; autoplay">
     </iframe>
   </div>
 
   <div class="episodes-wrapper">
-    <!-- СЕЗОН 1 (10 епизода) -->
+    <!-- SEASON 1 (10 епизода) -->
     <div class="season-block">
       <h4>Season 1</h4>
       <div class="ep-grid">
@@ -3274,7 +3276,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 2 (12 епизода) -->
+    <!-- SEASON 2 (12 епизода) -->
     <div class="season-block">
       <h4>Season 2</h4>
       <div class="ep-grid">
@@ -3293,7 +3295,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 3 (12 епизода) -->
+    <!-- SEASON 3 (12 епизода) -->
     <div class="season-block">
       <h4>Season 3</h4>
       <div class="ep-grid">
@@ -3317,10 +3319,11 @@
 <script>
   function playTedEp(season, episode, titleText, btn) {
     const imdbId = 'tt10986410';
-    document.getElementById('ted-frame').src = `https://vidsrc.to/embed/tv/${imdbId}/${season}/${episode}`;
-    document.getElementById('ted-status').innerText = `vidsrc.to • ${titleText}`;
+    document.getElementById('ted-frame').src = `https://www.2embed.cc/embedtv/${imdbId}&s=${season}&e=${episode}`;
+    document.getElementById('ted-status').innerText = `2embed • ${titleText}`;
     
-    const allButtons = document.querySelectorAll('.ep-grid button');
+    const playerCard = btn && btn.closest('.player-card');
+    const allButtons = playerCard ? playerCard.querySelectorAll('.ep-grid button') : document.querySelectorAll('.ep-grid button');
     allButtons.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
@@ -3428,21 +3431,21 @@
   <div class="player-header">
     <div class="player-title-group">
       <h3 class="player-title">Rick and Morty</h3>
-      <p class="player-subtitle" id="rm-status">vidsrc.to • Season 1 • Episode 1</p>
+      <p class="player-subtitle" id="rm-status">2embed • Season 1 • Episode 1</p>
     </div>
   </div>
 
   <div class="player-container">
     <iframe 
       id="rm-frame"
-      src="https://vidsrc.to/embed/tv/tt2861424/1/1" 
+      src="https://www.2embed.cc/embedtv/tt2861424&s=1&e=1" 
       allowfullscreen="true"
       allow="encrypted-media; autoplay">
     </iframe>
   </div>
 
   <div class="episodes-wrapper">
-    <!-- СЕЗОН 1 (11 епизода) -->
+    <!-- SEASON 1 (11 епизода) -->
     <div class="season-block">
       <h4>Season 1</h4>
       <div class="ep-grid">
@@ -3460,7 +3463,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 2 (10 епизода) -->
+    <!-- SEASON 2 (10 епизода) -->
     <div class="season-block">
       <h4>Season 2</h4>
       <div class="ep-grid">
@@ -3477,7 +3480,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 3 (10 епизода) -->
+    <!-- SEASON 3 (10 епизода) -->
     <div class="season-block">
       <h4>Season 3</h4>
       <div class="ep-grid">
@@ -3494,7 +3497,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 4 (10 епизода) -->
+    <!-- SEASON 4 (10 епизода) -->
     <div class="season-block">
       <h4>Season 4</h4>
       <div class="ep-grid">
@@ -3511,7 +3514,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 5 (10 епизода) -->
+    <!-- SEASON 5 (10 епизода) -->
     <div class="season-block">
       <h4>Season 5</h4>
       <div class="ep-grid">
@@ -3528,7 +3531,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 6 (10 епизода) -->
+    <!-- SEASON 6 (10 епизода) -->
     <div class="season-block">
       <h4>Season 6</h4>
       <div class="ep-grid">
@@ -3545,7 +3548,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 7 (10 епизода) -->
+    <!-- SEASON 7 (10 епизода) -->
     <div class="season-block">
       <h4>Season 7</h4>
       <div class="ep-grid">
@@ -3562,7 +3565,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 8 (10 епизода) -->
+    <!-- SEASON 8 (10 епизода) -->
     <div class="season-block">
       <h4>Season 8</h4>
       <div class="ep-grid">
@@ -3579,7 +3582,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 9 (10 епизода) -->
+    <!-- SEASON 9 (10 епизода) -->
     <div class="season-block">
       <h4>Season 9</h4>
       <div class="ep-grid">
@@ -3601,10 +3604,11 @@
 <script>
   function playRMEp(season, episode, titleText, btn) {
     const imdbId = 'tt2861424';
-    document.getElementById('rm-frame').src = `https://vidsrc.to/embed/tv/${imdbId}/${season}/${episode}`;
-    document.getElementById('rm-status').innerText = `vidsrc.to • ${titleText}`;
+    document.getElementById('rm-frame').src = `https://www.2embed.cc/embedtv/${imdbId}&s=${season}&e=${episode}`;
+    document.getElementById('rm-status').innerText = `2embed • ${titleText}`;
     
-    const allButtons = document.querySelectorAll('.ep-grid button');
+    const playerCard = btn && btn.closest('.player-card');
+    const allButtons = playerCard ? playerCard.querySelectorAll('.ep-grid button') : document.querySelectorAll('.ep-grid button');
     allButtons.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
@@ -3713,21 +3717,21 @@
   <div class="player-header">
     <div class="player-title-group">
       <h3 class="player-title">Sword Art Online</h3>
-      <p class="player-subtitle" id="sao-status">vidsrc.to • Season 1 • Episode 1</p>
+      <p class="player-subtitle" id="sao-status">2embed • Season 1 • Episode 1</p>
     </div>
   </div>
 
   <div class="player-container">
     <iframe 
       id="sao-frame"
-      src="https://vidsrc.to/embed/tv/tt2250192/1/1" 
+      src="https://www.2embed.cc/embedtv/tt2250192&s=1&e=1" 
       allowfullscreen="true"
       allow="encrypted-media; autoplay">
     </iframe>
   </div>
 
   <div class="episodes-wrapper">
-    <!-- СЕЗОН 1 -->
+    <!-- SEASON 1 -->
     <div class="season-block">
       <h4>Season 1</h4>
       <div class="ep-grid">
@@ -3759,7 +3763,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 2 -->
+    <!-- SEASON 2 -->
     <div class="season-block">
       <h4>Season 2</h4>
       <div class="ep-grid">
@@ -3790,7 +3794,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 3 -->
+    <!-- SEASON 3 -->
     <div class="season-block">
       <h4>Season 3 (Alicization)</h4>
       <div class="ep-grid">
@@ -3821,7 +3825,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 4 -->
+    <!-- SEASON 4 -->
     <div class="season-block">
       <h4>Season 4 (War of Underworld)</h4>
       <div class="ep-grid">
@@ -3856,10 +3860,11 @@
 <script>
   function playSaoEp(season, episode, titleText, btn) {
     const imdbId = 'tt2250192';
-    document.getElementById('sao-frame').src = `https://vidsrc.to/embed/tv/${imdbId}/${season}/${episode}`;
-    document.getElementById('sao-status').innerText = `vidsrc.to • ${titleText}`;
+    document.getElementById('sao-frame').src = `https://www.2embed.cc/embedtv/${imdbId}&s=${season}&e=${episode}`;
+    document.getElementById('sao-status').innerText = `2embed • ${titleText}`;
     
-    const allButtons = document.querySelectorAll('.ep-grid button');
+    const playerCard = btn && btn.closest('.player-card');
+    const allButtons = playerCard ? playerCard.querySelectorAll('.ep-grid button') : document.querySelectorAll('.ep-grid button');
     allButtons.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
@@ -3968,21 +3973,21 @@
   <div class="player-header">
     <div class="player-title-group">
       <h3 class="player-title">Ben 10 (Classic)</h3>
-      <p class="player-subtitle" id="ben10-status">vidsrc.to • Season 1 • Episode 1</p>
+      <p class="player-subtitle" id="ben10-status">2embed • Season 1 • Episode 1</p>
     </div>
   </div>
 
   <div class="player-container">
     <iframe 
       id="ben10-frame"
-      src="https://vidsrc.to/embed/tv/tt0760437/1/1" 
+      src="https://www.2embed.cc/embedtv/tt0760437&s=1&e=1" 
       allowfullscreen="true"
       allow="encrypted-media; autoplay">
     </iframe>
   </div>
 
   <div class="episodes-wrapper">
-    <!-- СЕЗОН 1 (13 епизода) -->
+    <!-- SEASON 1 (13 епизода) -->
     <div class="season-block">
       <h4>Season 1</h4>
       <div class="ep-grid">
@@ -4002,7 +4007,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 2 (13 епизода) -->
+    <!-- SEASON 2 (13 епизода) -->
     <div class="season-block">
       <h4>Season 2</h4>
       <div class="ep-grid">
@@ -4022,7 +4027,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 3 (13 епизода) -->
+    <!-- SEASON 3 (13 епизода) -->
     <div class="season-block">
       <h4>Season 3</h4>
       <div class="ep-grid">
@@ -4042,7 +4047,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 4 (13 епизода) -->
+    <!-- SEASON 4 (13 епизода) -->
     <div class="season-block">
       <h4>Season 4</h4>
       <div class="ep-grid">
@@ -4067,10 +4072,11 @@
 <script>
   function playBen10Ep(season, episode, titleText, btn) {
     const imdbId = 'tt0760437';
-    document.getElementById('ben10-frame').src = `https://vidsrc.to/embed/tv/${imdbId}/${season}/${episode}`;
-    document.getElementById('ben10-status').innerText = `vidsrc.to • ${titleText}`;
+    document.getElementById('ben10-frame').src = `https://www.2embed.cc/embedtv/${imdbId}&s=${season}&e=${episode}`;
+    document.getElementById('ben10-status').innerText = `2embed • ${titleText}`;
     
-    const allButtons = document.querySelectorAll('.ep-grid button');
+    const playerCard = btn && btn.closest('.player-card');
+    const allButtons = playerCard ? playerCard.querySelectorAll('.ep-grid button') : document.querySelectorAll('.ep-grid button');
     allButtons.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
@@ -4179,21 +4185,21 @@
   <div class="player-header">
     <div class="player-title-group">
       <h3 class="player-title">Ben 10: Alien Force</h3>
-      <p class="player-subtitle" id="af-status">vidsrc.to • Season 1 • Episode 1</p>
+      <p class="player-subtitle" id="af-status">2embed • Season 1 • Episode 1</p>
     </div>
   </div>
 
   <div class="player-container">
     <iframe 
       id="af-frame"
-      src="https://vidsrc.to/embed/tv/tt1192169/1/1" 
+      src="https://www.2embed.cc/embedtv/tt1192169&s=1&e=1" 
       allowfullscreen="true"
       allow="encrypted-media; autoplay">
     </iframe>
   </div>
 
   <div class="episodes-wrapper">
-    <!-- СЕЗОН 1 (13 епизода) -->
+    <!-- SEASON 1 (13 епизода) -->
     <div class="season-block">
       <h4>Season 1</h4>
       <div class="ep-grid">
@@ -4213,7 +4219,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 2 (13 епизода) -->
+    <!-- SEASON 2 (13 епизода) -->
     <div class="season-block">
       <h4>Season 2</h4>
       <div class="ep-grid">
@@ -4233,7 +4239,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 3 (20 епизода) -->
+    <!-- SEASON 3 (20 епизода) -->
     <div class="season-block">
       <h4>Season 3</h4>
       <div class="ep-grid">
@@ -4265,10 +4271,11 @@
 <script>
   function playAFEp(season, episode, titleText, btn) {
     const imdbId = 'tt1192169';
-    document.getElementById('af-frame').src = `https://vidsrc.to/embed/tv/${imdbId}/${season}/${episode}`;
-    document.getElementById('af-status').innerText = `vidsrc.to • ${titleText}`;
+    document.getElementById('af-frame').src = `https://www.2embed.cc/embedtv/${imdbId}&s=${season}&e=${episode}`;
+    document.getElementById('af-status').innerText = `2embed • ${titleText}`;
     
-    const allButtons = document.querySelectorAll('.ep-grid button');
+    const playerCard = btn && btn.closest('.player-card');
+    const allButtons = playerCard ? playerCard.querySelectorAll('.ep-grid button') : document.querySelectorAll('.ep-grid button');
     allButtons.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
@@ -4385,7 +4392,7 @@
   </div>
 
   <div class="episodes-wrapper">
-    <!-- СЕЗОН 1 (20 епизода) -->
+    <!-- SEASON 1 (20 епизода) -->
     <div class="season-block">
       <h4>Season 1</h4>
       <div class="ep-grid">
@@ -4412,7 +4419,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 2 (12 епизода) -->
+    <!-- SEASON 2 (12 епизода) -->
     <div class="season-block">
       <h4>Season 2</h4>
       <div class="ep-grid">
@@ -4431,7 +4438,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 3 (20 епизода) -->
+    <!-- SEASON 3 (20 епизода) -->
     <div class="season-block">
       <h4>Season 3</h4>
       <div class="ep-grid">
@@ -4466,7 +4473,8 @@
     document.getElementById('ua-frame').src = `https://www.2embed.online/embed/tv/${tmdbId}/${season}/${episode}`;
     document.getElementById('ua-status').innerText = `2embed.online • ${titleText}`;
     
-    const allButtons = document.querySelectorAll('.ep-grid button');
+    const playerCard = btn && btn.closest('.player-card');
+    const allButtons = playerCard ? playerCard.querySelectorAll('.ep-grid button') : document.querySelectorAll('.ep-grid button');
     allButtons.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
@@ -4575,21 +4583,21 @@
   <div class="player-header">
     <div class="player-title-group">
       <h3 class="player-title">Ben 10: Omniverse</h3>
-      <p class="player-subtitle" id="omni-status">vidsrc.to • Season 1 • Episode 1</p>
+      <p class="player-subtitle" id="omni-status">2embed • Season 1 • Episode 1</p>
     </div>
   </div>
 
   <div class="player-container">
     <iframe 
       id="omni-frame"
-      src="https://vidsrc.to/embed/tv/tt2293002/1/1" 
+      src="https://www.2embed.cc/embedtv/tt2293002&s=1&e=1" 
       allowfullscreen="true"
       allow="encrypted-media; autoplay">
     </iframe>
   </div>
 
   <div class="episodes-wrapper">
-    <!-- СЕЗОН 1 -->
+    <!-- SEASON 1 -->
     <div class="season-block">
       <h4>Season 1</h4>
       <div class="ep-grid">
@@ -4606,7 +4614,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 2 -->
+    <!-- SEASON 2 -->
     <div class="season-block">
       <h4>Season 2</h4>
       <div class="ep-grid">
@@ -4623,7 +4631,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 3 -->
+    <!-- SEASON 3 -->
     <div class="season-block">
       <h4>Season 3</h4>
       <div class="ep-grid">
@@ -4640,7 +4648,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 4 -->
+    <!-- SEASON 4 -->
     <div class="season-block">
       <h4>Season 4</h4>
       <div class="ep-grid">
@@ -4657,7 +4665,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 5 -->
+    <!-- SEASON 5 -->
     <div class="season-block">
       <h4>Season 5</h4>
       <div class="ep-grid">
@@ -4674,7 +4682,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 6 -->
+    <!-- SEASON 6 -->
     <div class="season-block">
       <h4>Season 6</h4>
       <div class="ep-grid">
@@ -4691,7 +4699,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 7 -->
+    <!-- SEASON 7 -->
     <div class="season-block">
       <h4>Season 7</h4>
       <div class="ep-grid">
@@ -4708,7 +4716,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 8 -->
+    <!-- SEASON 8 -->
     <div class="season-block">
       <h4>Season 8</h4>
       <div class="ep-grid">
@@ -4730,10 +4738,11 @@
 <script>
   function playOmniEp(season, episode, titleText, btn) {
     const imdbId = 'tt2293002';
-    document.getElementById('omni-frame').src = `https://vidsrc.to/embed/tv/${imdbId}/${season}/${episode}`;
-    document.getElementById('omni-status').innerText = `vidsrc.to • ${titleText}`;
+    document.getElementById('omni-frame').src = `https://www.2embed.cc/embedtv/${imdbId}&s=${season}&e=${episode}`;
+    document.getElementById('omni-status').innerText = `2embed • ${titleText}`;
     
-    const allButtons = document.querySelectorAll('.ep-grid button');
+    const playerCard = btn && btn.closest('.player-card');
+    const allButtons = playerCard ? playerCard.querySelectorAll('.ep-grid button') : document.querySelectorAll('.ep-grid button');
     allButtons.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
@@ -4988,45 +4997,45 @@
   <div class="player-header">
     <div class="player-title-group">
       <h3 class="player-title">Naruto</h3>
-      <p class="player-subtitle" id="naruto-status">vidsrc.to • Season 1 • Episode 1</p>
+      <p class="player-subtitle" id="naruto-status">2embed • Season 1 • Episode 1</p>
     </div>
   </div>
 
   <div class="player-container">
     <iframe 
       id="naruto-frame"
-      src="https://vidsrc.to/embed/tv/tt0409591/1/1" 
+      src="https://www.2embed.cc/embedtv/tt0409591&s=1&e=1" 
       allowfullscreen="true"
       allow="encrypted-media; autoplay">
     </iframe>
   </div>
 
   <div class="episodes-wrapper">
-    <!-- СЕЗОН 1 (E1 - E57) -->
+    <!-- SEASON 1 (E1 - E57) -->
     <div class="season-block">
       <h4>Season 1</h4>
       <div class="ep-grid" id="n-s1"></div>
     </div>
 
-    <!-- СЕЗОН 2 (E58 - E100) -->
+    <!-- SEASON 2 (E58 - E100) -->
     <div class="season-block">
       <h4>Season 2</h4>
       <div class="ep-grid" id="n-s2"></div>
     </div>
 
-    <!-- СЕЗОН 3 (E101 - E141) -->
+    <!-- SEASON 3 (E101 - E141) -->
     <div class="season-block">
       <h4>Season 3</h4>
       <div class="ep-grid" id="n-s3"></div>
     </div>
 
-    <!-- СЕЗОН 4 (E142 - E183) -->
+    <!-- SEASON 4 (E142 - E183) -->
     <div class="season-block">
       <h4>Season 4</h4>
       <div class="ep-grid" id="n-s4"></div>
     </div>
 
-    <!-- СЕЗОН 5 (E184 - E220) -->
+    <!-- SEASON 5 (E184 - E220) -->
     <div class="season-block">
       <h4>Season 5</h4>
       <div class="ep-grid" id="n-s5"></div>
@@ -5059,10 +5068,11 @@
 
   function playNarutoEp(season, episode, titleText, btn) {
     const imdbId = 'tt0409591';
-    document.getElementById('naruto-frame').src = `https://vidsrc.to/embed/tv/${imdbId}/${season}/${episode}`;
-    document.getElementById('naruto-status').innerText = `vidsrc.to • ${titleText}`;
+    document.getElementById('naruto-frame').src = `https://www.2embed.cc/embedtv/${imdbId}&s=${season}&e=${episode}`;
+    document.getElementById('naruto-status').innerText = `2embed • ${titleText}`;
     
-    const allButtons = document.querySelectorAll('.ep-grid button');
+    const playerCard = btn && btn.closest('.player-card');
+    const allButtons = playerCard ? playerCard.querySelectorAll('.ep-grid button') : document.querySelectorAll('.ep-grid button');
     allButtons.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
@@ -5321,21 +5331,21 @@
   <div class="player-header">
     <div class="player-title-group">
       <h3 class="player-title">Devil May Cry</h3>
-      <p class="player-subtitle" id="dmc-status">vidsrc.to • Season 1 • Episode 1</p>
+      <p class="player-subtitle" id="dmc-status">2embed • Season 1 • Episode 1</p>
     </div>
   </div>
 
   <div class="player-container">
     <iframe 
       id="dmc-frame"
-      src="https://vidsrc.to/embed/tv/tt15716776/1/1" 
+      src="https://www.2embed.cc/embedtv/tt15716776&s=1&e=1" 
       allowfullscreen="true"
       allow="encrypted-media; autoplay">
     </iframe>
   </div>
 
   <div class="episodes-wrapper">
-    <!-- СЕЗОН 1 -->
+    <!-- SEASON 1 -->
     <div class="season-block">
       <h4>Season 1</h4>
       <div class="ep-grid">
@@ -5350,7 +5360,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 2 -->
+    <!-- SEASON 2 -->
     <div class="season-block">
       <h4>Season 2</h4>
       <div class="ep-grid">
@@ -5370,10 +5380,11 @@
 <script>
   function playDmcEp(season, episode, titleText, btn) {
     const imdbId = 'tt15716776';
-    document.getElementById('dmc-frame').src = `https://vidsrc.to/embed/tv/${imdbId}/${season}/${episode}`;
-    document.getElementById('dmc-status').innerText = `vidsrc.to • ${titleText}`;
+    document.getElementById('dmc-frame').src = `https://www.2embed.cc/embedtv/${imdbId}&s=${season}&e=${episode}`;
+    document.getElementById('dmc-status').innerText = `2embed • ${titleText}`;
     
-    const allButtons = document.querySelectorAll('.ep-grid button');
+    const playerCard = btn && btn.closest('.player-card');
+    const allButtons = playerCard ? playerCard.querySelectorAll('.ep-grid button') : document.querySelectorAll('.ep-grid button');
     allButtons.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
@@ -5490,7 +5501,7 @@
   </div>
 
   <div class="marvel-spidey-episodes-wrapper">
-    <!-- СЕЗОН 1 (26 епизода) -->
+    <!-- SEASON 1 (26 епизода) -->
     <div class="marvel-spidey-season-block">
       <h4>Season 1</h4>
       <div class="marvel-spidey-ep-grid">
@@ -5523,7 +5534,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 2 (26 епизода) -->
+    <!-- SEASON 2 (26 епизода) -->
     <div class="marvel-spidey-season-block">
       <h4>Season 2</h4>
       <div class="marvel-spidey-ep-grid">
@@ -5556,7 +5567,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 3: MAXIMUM VENOM (6 епизода) -->
+    <!-- SEASON 3: MAXIMUM VENOM (6 епизода) -->
     <div class="marvel-spidey-season-block">
       <h4>Season 3 (Maximum Venom)</h4>
       <div class="marvel-spidey-ep-grid">
@@ -5683,14 +5694,14 @@
   <div class="player-header">
     <div class="player-title-group">
       <h3 class="player-title">Spider-Noir</h3>
-      <p class="player-subtitle" id="noir-status">vidsrc.to • Season 1 • Episode 1</p>
+      <p class="player-subtitle" id="noir-status">2embed • Season 1 • Episode 1</p>
     </div>
   </div>
 
   <div class="player-container">
     <iframe 
       id="noir-frame"
-      src="https://vidsrc.to/embed/tv/tt30460310/1/1" 
+      src="https://www.2embed.cc/embedtv/tt30460310&s=1&e=1" 
       allowfullscreen="true"
       allow="encrypted-media; autoplay"
       onload="checkNoirAvailability()">
@@ -5698,7 +5709,7 @@
   </div>
 
   <div class="episodes-wrapper">
-    <!-- СЕЗОН 1 (8 епизода) -->
+    <!-- SEASON 1 (8 епизода) -->
     <div class="season-block">
       <h4>Season 1</h4>
       <div class="ep-grid">
@@ -5720,8 +5731,8 @@
     const card = document.getElementById('noir-player-card');
     
     // Правим проверка чрез postMessage или зареждане на сървъра
-    // За vidsrc.to: ако видеото е достъпно, го показваме
-    fetch('https://vidsrc.to/embed/tv/tt30460310/1/1', { mode: 'no-cors' })
+    // За 2embed: ако видеото е достъпно, го показваме
+    fetch('https://www.2embed.cc/embedtv/tt30460310&s=1&e=1', { mode: 'no-cors' })
       .then(() => {
         // Ако сървърът върне отговор, показваме плейъра
         card.classList.remove('player-card-hidden');
@@ -5734,10 +5745,11 @@
 
   function playNoirEp(season, episode, titleText, btn) {
     const imdbId = 'tt30460310';
-    document.getElementById('noir-frame').src = `https://vidsrc.to/embed/tv/${imdbId}/${season}/${episode}`;
-    document.getElementById('noir-status').innerText = `vidsrc.to • ${titleText}`;
+    document.getElementById('noir-frame').src = `https://www.2embed.cc/embedtv/${imdbId}&s=${season}&e=${episode}`;
+    document.getElementById('noir-status').innerText = `2embed • ${titleText}`;
     
-    const allButtons = document.querySelectorAll('.ep-grid button');
+    const playerCard = btn && btn.closest('.player-card');
+    const allButtons = playerCard ? playerCard.querySelectorAll('.ep-grid button') : document.querySelectorAll('.ep-grid button');
     allButtons.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
@@ -5845,21 +5857,21 @@
   <div class="player-header">
     <div class="player-title-group">
       <h3 class="player-title">Ultimate Spider-Man</h3>
-      <p class="player-subtitle" id="ult-spidey-status">vidsrc.to • Season 1 • Episode 1</p>
+      <p class="player-subtitle" id="ult-spidey-status">2embed • Season 1 • Episode 1</p>
     </div>
   </div>
 
   <div class="player-container">
     <iframe 
       id="ult-spidey-frame"
-      src="https://vidsrc.to/embed/tv/tt1722512/1/1" 
+      src="https://www.2embed.cc/embedtv/tt1722512&s=1&e=1" 
       allowfullscreen="true"
       allow="encrypted-media; autoplay">
     </iframe>
   </div>
 
   <div class="episodes-wrapper">
-    <!-- СЕЗОН 1 (26 епизода) -->
+    <!-- SEASON 1 (26 епизода) -->
     <div class="season-block">
       <h4>Season 1</h4>
       <div class="ep-grid">
@@ -5892,7 +5904,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 2 (26 епизода) -->
+    <!-- SEASON 2 (26 епизода) -->
     <div class="season-block">
       <h4>Season 2</h4>
       <div class="ep-grid">
@@ -5925,7 +5937,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 3 (26 епизода) -->
+    <!-- SEASON 3 (26 епизода) -->
     <div class="season-block">
       <h4>Season 3</h4>
       <div class="ep-grid">
@@ -5958,7 +5970,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 4 (26 епизода) -->
+    <!-- SEASON 4 (26 епизода) -->
     <div class="season-block">
       <h4>Season 4</h4>
       <div class="ep-grid">
@@ -5996,10 +6008,11 @@
 <script>
   function playUltSpideyEp(season, episode, titleText, btn) {
     const imdbId = 'tt1722512';
-    document.getElementById('ult-spidey-frame').src = `https://vidsrc.to/embed/tv/${imdbId}/${season}/${episode}`;
-    document.getElementById('ult-spidey-status').innerText = `vidsrc.to • ${titleText}`;
+    document.getElementById('ult-spidey-frame').src = `https://www.2embed.cc/embedtv/${imdbId}&s=${season}&e=${episode}`;
+    document.getElementById('ult-spidey-status').innerText = `2embed • ${titleText}`;
     
-    const allButtons = document.querySelectorAll('.ep-grid button');
+    const playerCard = btn && btn.closest('.player-card');
+    const allButtons = playerCard ? playerCard.querySelectorAll('.ep-grid button') : document.querySelectorAll('.ep-grid button');
     allButtons.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
@@ -6106,21 +6119,21 @@
   <div class="player-header">
     <div class="player-title-group">
       <h3 class="player-title">Spider-Man: The Animated Series (1994)</h3>
-      <p class="player-subtitle" id="spidey94-status">vidsrc.to • Season 1 • Episode 1</p>
+      <p class="player-subtitle" id="spidey94-status">2embed • Season 1 • Episode 1</p>
     </div>
   </div>
 
   <div class="player-container">
     <iframe 
       id="spidey94-frame"
-      src="https://vidsrc.to/embed/tv/tt0112175/1/1" 
+      src="https://www.2embed.cc/embedtv/tt0112175&s=1&e=1" 
       allowfullscreen="true"
       allow="encrypted-media; autoplay">
     </iframe>
   </div>
 
   <div class="episodes-wrapper">
-    <!-- СЕЗОН 1 (13 епизода) -->
+    <!-- SEASON 1 (13 епизода) -->
     <div class="season-block">
       <h4>Season 1</h4>
       <div class="ep-grid">
@@ -6140,7 +6153,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 2 (14 епизода) -->
+    <!-- SEASON 2 (14 епизода) -->
     <div class="season-block">
       <h4>Season 2 (Neogenic Nightmare)</h4>
       <div class="ep-grid">
@@ -6161,7 +6174,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 3 (14 епизода) -->
+    <!-- SEASON 3 (14 епизода) -->
     <div class="season-block">
       <h4>Season 3 (Sins of the Fathers)</h4>
       <div class="ep-grid">
@@ -6182,7 +6195,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 4 (11 епизода) -->
+    <!-- SEASON 4 (11 епизода) -->
     <div class="season-block">
       <h4>Season 4 (Partners in Danger)</h4>
       <div class="ep-grid">
@@ -6200,7 +6213,7 @@
       </div>
     </div>
 
-    <!-- СЕЗОН 5 (13 епизода) -->
+    <!-- SEASON 5 (13 епизода) -->
     <div class="season-block">
       <h4>Season 5 (The Secret Wars & Spider Wars)</h4>
       <div class="ep-grid">
@@ -6225,10 +6238,11 @@
 <script>
   function playSpidey94Ep(season, episode, titleText, btn) {
     const imdbId = 'tt0112175';
-    document.getElementById('spidey94-frame').src = `https://vidsrc.to/embed/tv/${imdbId}/${season}/${episode}`;
-    document.getElementById('spidey94-status').innerText = `vidsrc.to • ${titleText}`;
+    document.getElementById('spidey94-frame').src = `https://www.2embed.cc/embedtv/${imdbId}&s=${season}&e=${episode}`;
+    document.getElementById('spidey94-status').innerText = `2embed • ${titleText}`;
     
-    const allButtons = document.querySelectorAll('.ep-grid button');
+    const playerCard = btn && btn.closest('.player-card');
+    const allButtons = playerCard ? playerCard.querySelectorAll('.ep-grid button') : document.querySelectorAll('.ep-grid button');
     allButtons.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
