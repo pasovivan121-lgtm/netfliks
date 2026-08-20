@@ -2777,10 +2777,7 @@
   <div class="player-header"><h3 class="player-title">Guardians of the Galaxy Vol. 2</h3><p class="player-subtitle">MCU • 1080p</p></div>
   <div class="player-container"><iframe src="https://www.2embed.cc/embed/tt3896198" allowfullscreen></iframe></div>
 </article>
-<article class="player-card" data-title="Spider-Man: Homecoming" data-video-src="https://www.2embed.cc/embed/tt2250912" data-year="2017" data-rating="7.4">
-  <div class="player-header"><h3 class="player-title">Spider-Man: Homecoming</h3><p class="player-subtitle">MCU • 1080p</p></div>
-  <div class="player-container"><iframe src="https://www.2embed.cc/embed/tt2250912" allowfullscreen></iframe></div>
-</article>
+
 <article class="player-card" data-title="Thor: Ragnarok" data-video-src="https://www.2embed.cc/embed/tt3501632" data-year="2017" data-rating="7.9">
   <div class="player-header"><h3 class="player-title">Thor: Ragnarok</h3><p class="player-subtitle">MCU • 1080p</p></div>
   <div class="player-container"><iframe src="https://www.2embed.cc/embed/tt3501632" allowfullscreen></iframe></div>
@@ -2804,6 +2801,36 @@
 <article class="player-card" data-title="Avengers: Endgame" data-video-src="https://www.2embed.cc/embed/tt4154796" data-year="2019" data-rating="8.4">
   <div class="player-header"><h3 class="player-title">Avengers: Endgame</h3><p class="player-subtitle">MCU • 1080p</p></div>
   <div class="player-container"><iframe src="https://www.2embed.cc/embed/tt4154796" allowfullscreen></iframe></div>
+</article>
+
+<!-- Additional MCU movies added -->
+<article class="player-card" data-title="Black Widow" data-video-src="https://www.2embed.cc/embed/tt3480822" data-year="2021">
+  <div class="player-header"><h3 class="player-title">Black Widow</h3><p class="player-subtitle">MCU • 1080p</p></div>
+  <div class="player-container"><iframe src="https://www.2embed.cc/embed/tt3480822" allowfullscreen></iframe></div>
+</article>
+<article class="player-card" data-title="Shang-Chi and the Legend of the Ten Rings" data-video-src="https://www.2embed.cc/embed/tt9376612" data-year="2021">
+  <div class="player-header"><h3 class="player-title">Shang-Chi and the Legend of the Ten Rings</h3><p class="player-subtitle">MCU • 1080p</p></div>
+  <div class="player-container"><iframe src="https://www.2embed.cc/embed/tt9376612" allowfullscreen></iframe></div>
+</article>
+<article class="player-card" data-title="Eternals" data-video-src="https://www.2embed.cc/embed/tt9032400" data-year="2021">
+  <div class="player-header"><h3 class="player-title">Eternals</h3><p class="player-subtitle">MCU • 1080p</p></div>
+  <div class="player-container"><iframe src="https://www.2embed.cc/embed/tt9032400" allowfullscreen></iframe></div>
+</article>
+<article class="player-card" data-title="Doctor Strange in the Multiverse of Madness" data-video-src="https://www.2embed.cc/embed/tt9419884" data-year="2022">
+  <div class="player-header"><h3 class="player-title">Doctor Strange in the Multiverse of Madness</h3><p class="player-subtitle">MCU • 1080p</p></div>
+  <div class="player-container"><iframe src="https://www.2embed.cc/embed/tt9419884" allowfullscreen></iframe></div>
+</article>
+<article class="player-card" data-title="Thor: Love and Thunder" data-video-src="https://www.2embed.cc/embed/tt10648342" data-year="2022">
+  <div class="player-header"><h3 class="player-title">Thor: Love and Thunder</h3><p class="player-subtitle">MCU • 1080p</p></div>
+  <div class="player-container"><iframe src="https://www.2embed.cc/embed/tt10648342" allowfullscreen></iframe></div>
+</article>
+<article class="player-card" data-title="Ant-Man and the Wasp: Quantumania" data-video-src="https://www.2embed.cc/embed/tt10954600" data-year="2023">
+  <div class="player-header"><h3 class="player-title">Ant-Man and the Wasp: Quantumania</h3><p class="player-subtitle">MCU • 1080p</p></div>
+  <div class="player-container"><iframe src="https://www.2embed.cc/embed/tt10954600" allowfullscreen></iframe></div>
+</article>
+<article class="player-card" data-title="Black Panther: Wakanda Forever" data-video-src="https://www.2embed.cc/embed/tt9114286" data-year="2022">
+  <div class="player-header"><h3 class="player-title">Black Panther: Wakanda Forever</h3><p class="player-subtitle">MCU • 1080p</p></div>
+  <div class="player-container"><iframe src="https://www.2embed.cc/embed/tt9114286" allowfullscreen></iframe></div>
 </article>
 
 <!-- DC Extended Universe / DC Movies -->
@@ -3119,6 +3146,9 @@
 
   // Populate The Wire
   populateEpGrid('[data-title="The Wire"] .episodes-wrapper', [13,12,12,13,10], 'playWireEp', 'wire-frame', 'wire-status', 'tt0306414');
+
+  // Populate The Flash (CW series) - Seasons 1..9 with official episode counts
+  populateEpGrid('[data-title="The Flash"] .episodes-wrapper', [23,23,23,23,22,19,18,20,13], 'playFlashEp', 'flash-frame', 'flash-status', 'tt3107288');
 </script>
 <style>
   .player-card {
@@ -3217,6 +3247,33 @@
     font-weight: bold;
   }
 </style>
+
+<!-- The Flash (TV Series) - inserted with accurate per-season episode counts -->
+<article class="player-card" data-title="The Flash" data-video-src="https://www.2embed.cc/embedtv/tt3107288" data-year="2014" data-duration="Varies" data-rating="7.3">
+  <div class="player-header">
+    <h3 class="player-title">The Flash</h3>
+    <p class="player-subtitle" id="flash-status">2embed • Season 1 • Episode 1</p>
+  </div>
+  <div class="player-container">
+    <iframe id="flash-frame" src="https://www.2embed.cc/embedtv/tt3107288&s=1&e=1" allowfullscreen="true" allow="encrypted-media; autoplay"></iframe>
+  </div>
+  <div class="episodes-wrapper">
+    <div class="season-block"><h4>Season 1 (23)</h4><div class="ep-grid"></div></div>
+    <div class="season-block"><h4>Season 2 (23)</h4><div class="ep-grid"></div></div>
+    <div class="season-block"><h4>Season 3 (23)</h4><div class="ep-grid"></div></div>
+    <div class="season-block"><h4>Season 4 (23)</h4><div class="ep-grid"></div></div>
+    <div class="season-block"><h4>Season 5 (22)</h4><div class="ep-grid"></div></div>
+    <div class="season-block"><h4>Season 6 (19)</h4><div class="ep-grid"></div></div>
+    <div class="season-block"><h4>Season 7 (18)</h4><div class="ep-grid"></div></div>
+    <div class="season-block"><h4>Season 8 (20)</h4><div class="ep-grid"></div></div>
+    <div class="season-block"><h4>Season 9 (13)</h4><div class="ep-grid"></div></div>
+  </div>
+</article>
+
+<script>
+  // Populate The Flash episode buttons now that the DOM block exists
+  populateEpGrid('[data-title="The Flash"] .episodes-wrapper', [23,23,23,23,22,19,18,20,13], 'playFlashEp', 'flash-frame', 'flash-status', 'tt3107288');
+</script>
 
 <article class="player-card">
   <div class="player-header">
