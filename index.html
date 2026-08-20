@@ -2179,12 +2179,17 @@
         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
       </svg>
       <input type="search" class="search-input" placeholder="Search movies, series..." aria-label="Search for movies and series" autocomplete="off">
+      <select id="search-filter" aria-label="Filter search" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.04); color:var(--netflix-white); border:1px solid var(--netflix-border); padding:6px 8px; border-radius:8px; font-size:13px;">
+        <option value="all">All</option>
+        <option value="movies">Movies</option>
+        <option value="shows">Shows</option>
+      </select>
       <div class="search-results" aria-live="polite" hidden></div>
     </div>
     <nav class="nav-links" aria-label="Main navigation">
-      <a href="#" class="nav-link active" aria-current="page">Home</a>
-      <a href="#" class="nav-link">TV Shows</a>
-      <a href="#" class="nav-link">Movies</a>
+      <a href="#" id="nav-home" class="nav-link active" aria-current="page">Home</a>
+      <a href="?view=shows" id="nav-shows" class="nav-link">TV Shows</a>
+      <a href="?view=movies" id="nav-movies" class="nav-link">Movies</a>
       <a href="#" class="nav-link">New & Popular</a>
       <a href="#" class="nav-link">My List</a>
     </nav>
@@ -2715,6 +2720,47 @@
   </div>
 </article>
 
+
+<!-- Inserted movies: Venom & The Godfather -->
+<article class="player-card" data-title="Venom: The Last Dance" data-keywords="venom,last dance,tom hardy,venom trilogy" data-video-src="https://www.2embed.cc/embed/tt16366836" data-year="2024" data-duration="109m" data-rating="6.0">
+  <div class="player-header">
+    <h3 class="player-title">Venom: The Last Dance</h3>
+    <p class="player-subtitle">2024 • Tom Hardy</p>
+  </div>
+  <div class="player-container">
+    <iframe src="https://www.2embed.cc/embed/tt16366836" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen="true" allow="encrypted-media; autoplay"></iframe>
+  </div>
+</article>
+
+<article class="player-card" data-title="Venom" data-keywords="venom,tom hardy,venom 2018,venom movie" data-video-src="https://www.2embed.cc/embed/tt1270797" data-year="2018" data-duration="112m" data-rating="6.7">
+  <div class="player-header">
+    <h3 class="player-title">Venom</h3>
+    <p class="player-subtitle">2018 • Tom Hardy</p>
+  </div>
+  <div class="player-container">
+    <iframe src="https://www.2embed.cc/embed/tt1270797" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen="true" allow="encrypted-media; autoplay"></iframe>
+  </div>
+</article>
+
+<article class="player-card" data-title="Venom: Let There Be Carnage" data-keywords="venom,carnage,tom hardy,let there be carnage" data-video-src="https://www.2embed.cc/embed/tt7097896" data-year="2021" data-duration="97m" data-rating="6.2">
+  <div class="player-header">
+    <h3 class="player-title">Venom: Let There Be Carnage</h3>
+    <p class="player-subtitle">2021 • Tom Hardy</p>
+  </div>
+  <div class="player-container">
+    <iframe src="https://www.2embed.cc/embed/tt7097896" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen="true" allow="encrypted-media; autoplay"></iframe>
+  </div>
+</article>
+
+<article class="player-card" data-title="The Godfather" data-video-src="https://www.2embed.cc/embed/tt0068646" data-year="1972" data-duration="175m" data-rating="9.2">
+  <div class="player-header">
+    <h3 class="player-title">The Godfather</h3>
+    <p class="player-subtitle">1972 • Francis Ford Coppola</p>
+  </div>
+  <div class="player-container">
+    <iframe src="https://www.2embed.cc/embed/tt0068646" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen="true" allow="encrypted-media; autoplay"></iframe>
+  </div>
+</article>
 
 <!-- Marvel Cinematic Universe - Watch Now additions -->
 <article class="player-card" data-title="Iron Man" data-video-src="https://www.2embed.cc/embed/tt0371746" data-year="2008" data-rating="7.9">
@@ -7306,9 +7352,10 @@
       }
     });
 
-    // Search functionality - filters existing movie cards on the page
+    // Search functionality - filters existing movie cards on the page and supports Movies/Shows filter
     const searchInput = document.querySelector('.search-input');
     const searchResults = document.querySelector('.search-results');
+    const searchFilter = document.getElementById('search-filter');
     let searchDebounceTimer = null;
 
     function getMovieCards() {
@@ -7316,18 +7363,29 @@
     }
 
     function performSearch(query) {
-      if (!query.trim()) {
+      if (!query || !query.trim()) {
         hideSearchResults();
         return;
       }
 
+      const filter = (searchFilter && searchFilter.value) || 'all';
+      const q = query.toLowerCase();
       const cards = getMovieCards();
       const filtered = cards.filter(card => {
-        // derive title from dataset or fallback to visible heading text
         const dsTitle = card.dataset.title?.trim();
         const heading = (card.querySelector('.player-title') || card.querySelector('.movie-card-title'))?.textContent?.trim();
         const title = (dsTitle || heading || '').toLowerCase();
-        return title.includes(query.toLowerCase());
+        const year = (card.dataset.year || '').toLowerCase();
+        const rating = (card.dataset.rating || '').toLowerCase();
+        const keywords = (card.dataset.keywords || '').toLowerCase();
+
+        const videoSrc = (card.dataset.videoSrc || (card.querySelector('iframe')?.src || '')).toLowerCase();
+        const isSeries = !!card.querySelector('.episodes-wrapper') || videoSrc.includes('/embedtv/');
+
+        if (filter === 'movies' && isSeries) return false;
+        if (filter === 'shows' && !isSeries) return false;
+
+        return title.includes(q) || year.includes(q) || rating.includes(q) || keywords.includes(q);
       });
 
       if (filtered.length === 0) {
@@ -7345,12 +7403,15 @@
         const rating = card.dataset.rating || '';
         const posterEl = card.querySelector('.movie-card-poster, img');
         const poster = posterEl ? posterEl.src : '';
-        // determine type (series if embedtv used or has episodes wrapper)
-        const isSeries = !!card.querySelector('.episodes-wrapper') || (card.dataset.videoSrc || (card.querySelector('iframe')?.src || '')).includes('/embedtv/');
+        const videoSrc = (card.dataset.videoSrc || (card.querySelector('iframe')?.src || ''));
+        const isSeries = !!card.querySelector('.episodes-wrapper') || (videoSrc || '').includes('/embedtv/');
         const typeLabel = isSeries ? 'Series' : 'Movie';
+
+        const posterSrc = poster || 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="72"><rect width="48" height="72" fill="%231b1b1b"/><text x="50%" y="50%" fill="%23ccc" font-size="10" dominant-baseline="middle" text-anchor="middle">No+Image</text></svg>';
+
         return `
           <div class="search-result-item" data-title="${escapeHtml(title)}" tabindex="0" role="button" aria-label="Play ${escapeHtml(title)}">
-            <img class="search-result-poster" src="${poster}" alt="" loading="lazy">
+            <img class="search-result-poster" src="${posterSrc}" alt="" loading="lazy">
             <div class="search-result-info">
               <div class="search-result-title">${escapeHtml(title)}</div>
               <div class="search-result-meta">
@@ -7366,7 +7427,7 @@
 
       searchResults.hidden = false;
 
-      // Add click handlers to results
+      // Add click/keyboard handlers to results
       searchResults.querySelectorAll('.search-result-item').forEach(item => {
         item.addEventListener('click', () => selectResult(item.dataset.title));
         item.addEventListener('keydown', (e) => {
@@ -7391,20 +7452,17 @@
         hideSearchResults();
         searchInput.value = '';
         searchInput.blur();
-        
-        // Scroll to the card
+
         card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        
-        // Highlight the card briefly
+
         card.style.outline = '3px solid var(--netflix-red)';
         card.style.outlineOffset = '4px';
         setTimeout(() => {
           card.style.outline = '';
           card.style.outlineOffset = '';
         }, 2000);
-        
-        // Open the modal
-        const videoSrc = card.dataset.videoSrc;
+
+        const videoSrc = card.dataset.videoSrc || (card.querySelector('iframe')?.src || '');
         const year = card.dataset.year;
         const duration = card.dataset.duration;
         const rating = card.dataset.rating;
@@ -7430,6 +7488,13 @@
         performSearch(searchInput.value);
       }
     });
+
+    // Re-run search when filter changes
+    if (searchFilter) {
+      searchFilter.addEventListener('change', () => {
+        if (searchInput.value.trim()) performSearch(searchInput.value);
+      });
+    }
 
     // Hide results when clicking outside
     document.addEventListener('click', (e) => {
@@ -7472,6 +7537,35 @@
         hideSearchResults();
         searchInput.focus();
       }
+    });
+
+    // Page view filtering (Movies / Shows) using URL ?view=movies or ?view=shows
+    function filterView(view) {
+      const cards = getMovieCards();
+      cards.forEach(c => {
+        const videoSrc = (c.dataset.videoSrc || (c.querySelector('iframe')?.src || '')).toLowerCase();
+        const isSeries = !!c.querySelector('.episodes-wrapper') || videoSrc.includes('/embedtv/');
+        if (view === 'movies') c.style.display = isSeries ? 'none' : '';
+        else if (view === 'shows') c.style.display = isSeries ? '' : 'none';
+        else c.style.display = '';
+      });
+
+      // update nav active state
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      if (view === 'movies') {
+        const el = document.querySelector('#nav-movies'); if (el) el.classList.add('active');
+      } else if (view === 'shows') {
+        const el = document.querySelector('#nav-shows'); if (el) el.classList.add('active');
+      } else {
+        const el = document.querySelector('#nav-home'); if (el) el.classList.add('active');
+      }
+    }
+
+    // apply view filter from URL on load
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(location.search);
+      const view = params.get('view');
+      if (view) filterView(view);
     });
   </script>
 </body>
