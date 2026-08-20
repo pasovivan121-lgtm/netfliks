@@ -2514,6 +2514,32 @@
             </div>
           </div>
         </article>
+
+        <article class="movie-card" role="listitem" tabindex="0" data-video-src="https://www.2embed.cc/embedtv/tt0434665&s=1&e=1" data-title="Bleach" data-year="2004" data-duration="366 episodes" data-rating="8.2">
+          <img class="movie-card-poster" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='750' viewBox='0 0 500 750'%3E%3Cdefs%3E%3ClinearGradient id='bleachg' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230d1b2a'/%3E%3Cstop offset='1' stop-color='%2343567f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='750' fill='url(%23bleachg)'/%3E%3Ccircle cx='170' cy='220' r='120' fill='%23c7d7ff' opacity='0.18'/%3E%3Cpath d='M120 140h260v120H120z' fill='%23f5f5f5' opacity='0.8'/%3E%3Cpath d='M160 200l80-80 80 80v240H160z' fill='%23dfe9ff' opacity='0.9'/%3E%3Cpath d='M200 170L250 120L300 170V420H200Z' fill='%230d1b2a' opacity='0.7'/%3E%3Ctext x='250' y='548' text-anchor='middle' fill='white' font-size='52' font-family='Arial, sans-serif' font-weight='700'%3EBleach%3C/text%3E%3Ctext x='250' y='610' text-anchor='middle' fill='%23dfe9ff' font-size='20' font-family='Arial, sans-serif' letter-spacing='2'%3E366 EPISODES%3C/text%3E%3C/svg%3E" alt="Bleach" loading="lazy">
+          <div class="movie-card-overlay">
+            <div class="movie-card-overlay-content">
+              <button class="movie-card-play-btn" aria-label="Play Bleach">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+              <div class="movie-card-overlay-info">
+                <span class="movie-card-overlay-title">Bleach</span>
+                <div class="movie-card-overlay-meta">
+                  <span class="movie-card-overlay-year">2004</span>
+                  <span class="movie-card-overlay-rating"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>8.2</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="movie-card-hint"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Watch Now</div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title">Bleach</h3>
+            <div class="movie-card-meta">
+              <span class="movie-card-year">2004</span>
+              <span class="movie-card-rating"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>8.2</span>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -5646,6 +5672,191 @@
     btn.classList.add('active');
   }
 </script>
+
+<!-- Bleach - Full Player Block by Seasons -->
+<style>
+  .bleach-card {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    background: #141414;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid #222;
+  }
+
+  .bleach-header {
+    padding: 16px 20px;
+    background: #1f1f1f;
+    border-bottom: 1px solid #333;
+  }
+
+  .bleach-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #b8d7ff;
+  }
+
+  .bleach-subtitle {
+    margin: 4px 0 0 0;
+    font-size: 13px;
+    color: #aaa;
+  }
+
+  .bleach-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    background: #000;
+  }
+
+  .bleach-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .bleach-episodes-wrapper {
+    padding: 20px;
+    background: #101010;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  .bleach-season-block {
+    margin-bottom: 24px;
+  }
+
+  .bleach-season-block h4 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: #b8d7ff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 4px;
+  }
+
+  .bleach-ep-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .bleach-ep-grid button {
+    background: #222;
+    color: #ccc;
+    border: 1px solid #444;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s ease;
+  }
+
+  .bleach-ep-grid button:hover,
+  .bleach-ep-grid button.active {
+    background: #b8d7ff;
+    color: #000;
+    border-color: #b8d7ff;
+    font-weight: bold;
+  }
+</style>
+
+<article class="bleach-card">
+  <div class="bleach-header">
+    <div class="bleach-title-group">
+      <h3 class="bleach-title">Bleach</h3>
+      <p class="bleach-subtitle" id="bleach-status">2embed • Season 1 • Episode 1</p>
+    </div>
+  </div>
+
+  <div class="bleach-container">
+    <iframe 
+      id="bleach-frame"
+      src="https://www.2embed.cc/embedtv/tt0434665&s=1&e=1" 
+      allowfullscreen="true"
+      allow="encrypted-media; autoplay">
+    </iframe>
+  </div>
+
+  <div class="bleach-episodes-wrapper" id="bleach-seasons-container"></div>
+</article>
+
+<script>
+  function renderBleachSeasons() {
+    const container = document.getElementById('bleach-seasons-container');
+    if (!container) return;
+
+    // Официално разпределение на епизодите по сезони (Общо 366)
+    const seasonsData = [
+      { season: 1, episodes: 20 },
+      { season: 2, episodes: 21 },
+      { season: 3, episodes: 22 },
+      { season: 4, episodes: 28 },
+      { season: 5, episodes: 18 },
+      { season: 6, episodes: 22 },
+      { season: 7, episodes: 20 },
+      { season: 8, episodes: 16 },
+      { season: 9, episodes: 22 },
+      { season: 10, episodes: 16 },
+      { season: 11, episodes: 7 },
+      { season: 12, episodes: 17 },
+      { season: 13, episodes: 36 },
+      { season: 14, episodes: 51 },
+      { season: 15, episodes: 26 },
+      { season: 16, episodes: 24 }
+    ];
+
+    let html = '';
+
+    seasonsData.forEach(item => {
+      html += `<div class="bleach-season-block">`;
+      html += `<h4>Season ${item.season}</h4>`;
+      html += `<div class="bleach-ep-grid">`;
+
+      for (let ep = 1; ep <= item.episodes; ep++) {
+        const isActive = item.season === 1 && ep === 1 ? 'active' : '';
+        html += `<button class="${isActive}" onclick="playBleachEp(${item.season}, ${ep}, 'Season ${item.season} • Episode ${ep}', this)">E${ep}</button>`;
+      }
+
+      html += `</div></div>`;
+    });
+
+    container.innerHTML = html;
+  }
+
+  function playBleachEp(season, episode, titleText, btn) {
+    const imdbId = 'tt0434665';
+    const iframe = document.getElementById('bleach-frame');
+    const status = document.getElementById('bleach-status');
+
+    if (iframe) {
+      iframe.src = `https://www.2embed.cc/embedtv/${imdbId}&s=${season}&e=${episode}`;
+    }
+
+    if (status) {
+      status.innerText = `2embed • ${titleText}`;
+    }
+
+    const playerCard = btn ? btn.closest('.bleach-card') : null;
+    const allButtons = playerCard ? playerCard.querySelectorAll('.bleach-ep-grid button') : document.querySelectorAll('.bleach-ep-grid button');
+    allButtons.forEach(b => b.classList.remove('active'));
+    
+    if (btn) btn.classList.add('active');
+  
+  }
+
+  renderBleachSeasons();
+</script>
+
 <!-- Spider-Noir - Full Player Block (Hidden by Default) -->
 <style>
   /* Скриваме картата по подразбиране */
