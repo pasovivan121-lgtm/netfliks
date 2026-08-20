@@ -14,19 +14,20 @@
 
   <style>
     :root {
-      --netflix-black: #000000;
-      --netflix-dark: #141414;
-      --netflix-card: #181818;
-      --netflix-card-hover: #1f1f1f;
-      --netflix-red: #e50914;
-      --netflix-red-hover: #f40612;
-      --netflix-red-glow: rgba(229, 9, 20, 0.4);
-      --netflix-gray: #808080;
-      --netflix-light-gray: #b3b3b3;
-      --netflix-white: #ffffff;
-      --netflix-border: #333333;
-      --netflix-gold: #ffd700;
-      --netflix-cyan: #00d4ff;
+      --netflix-black: #070b14;
+      --netflix-dark: #0d1320;
+      --netflix-card: rgba(18, 24, 36, 0.86);
+      --netflix-card-hover: rgba(22, 31, 46, 0.96);
+      --netflix-red: #ff2a52;
+      --netflix-red-hover: #ff4d6d;
+      --netflix-red-glow: rgba(255, 42, 82, 0.35);
+      --netflix-gray: #91a0b7;
+      --netflix-light-gray: #dfe7f5;
+      --netflix-white: #f5f7ff;
+      --netflix-border: rgba(148, 163, 184, 0.18);
+      --netflix-gold: #ffd166;
+      --netflix-cyan: #67e8f9;
+      --panel-shadow: 0 24px 80px rgba(2, 6, 23, 0.7);
     }
 
     * {
@@ -43,7 +44,10 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: var(--netflix-black);
+      background:
+        radial-gradient(circle at top, rgba(255, 42, 82, 0.18), transparent 30%),
+        radial-gradient(circle at 80% 15%, rgba(103, 232, 249, 0.12), transparent 25%),
+        linear-gradient(180deg, #050914 0%, var(--netflix-black) 18%, #0a0f1d 100%);
       color: var(--netflix-white);
       min-height: 100vh;
       overflow-x: hidden;
@@ -231,24 +235,26 @@
     /* ===== HEADER / NAV ===== */
     .netflix-header {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 12px;
+      left: 16px;
+      right: 16px;
       z-index: 1000;
-      padding: 16px 40px;
+      padding: 16px 22px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: linear-gradient(180deg, rgba(20, 20, 20, 0.95) 0%, rgba(20, 20, 20, 0.7) 60%, transparent 100%);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.3s ease, background 0.3s ease;
+      background: rgba(8, 11, 20, 0.62);
+      backdrop-filter: blur(18px) saturate(120%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(2, 6, 23, 0.35);
+      transition: border-color 0.3s ease, background 0.3s ease, transform 0.2s ease;
     }
 
     .netflix-header.scrolled {
-      border-bottom-color: var(--netflix-border);
-      background: rgba(20, 20, 20, 0.98);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 42, 82, 0.3);
+      background: rgba(8, 11, 20, 0.8);
+      box-shadow: 0 18px 50px rgba(2, 6, 23, 0.45);
     }
 
     /* ===== NEW LOGO STYLES ===== */
@@ -1078,21 +1084,24 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 32px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--netflix-border);
+      margin-bottom: 28px;
+      padding: 18px 22px;
+      border: 1px solid var(--netflix-border);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(15, 20, 31, 0.8), rgba(15, 20, 31, 0.42));
       position: relative;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
     }
 
     .section-header::after {
       content: '';
       position: absolute;
       bottom: -1px;
-      left: 0;
-      width: 60px;
+      left: 22px;
+      width: 70px;
       height: 3px;
       background: linear-gradient(90deg, var(--netflix-red), var(--netflix-cyan));
-      border-radius: 2px;
+      border-radius: 999px;
       animation: sectionLineGrow 0.8s ease-out;
     }
 
@@ -1144,20 +1153,21 @@
     }
 
     .movie-card {
-      background: var(--netflix-card);
-      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(17, 23, 35, 0.95), rgba(12, 17, 27, 0.98));
+      border-radius: 18px;
       overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      border: 1px solid transparent;
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      border: 1px solid rgba(148, 163, 184, 0.12);
       position: relative;
       cursor: pointer;
+      box-shadow: 0 18px 45px rgba(2, 6, 23, 0.28);
     }
 
     .movie-card::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, transparent 40%, rgba(229, 9, 20, 0.15) 100%);
+      background: linear-gradient(180deg, rgba(255, 42, 82, 0.06), transparent 38%, rgba(103, 232, 249, 0.06) 100%);
       opacity: 0;
       transition: opacity 0.3s ease;
       pointer-events: none;
@@ -1165,12 +1175,12 @@
     }
 
     .movie-card:hover {
-      transform: translateY(-12px) scale(1.025);
-      border-color: var(--netflix-red);
+      transform: translateY(-12px) scale(1.02);
+      border-color: rgba(255, 42, 82, 0.65);
       box-shadow: 
-        0 25px 50px rgba(0, 0, 0, 0.6),
-        0 0 0 1px var(--netflix-red),
-        0 0 80px rgba(229, 9, 20, 0.2);
+        0 30px 70px rgba(2, 6, 23, 0.55),
+        0 0 0 1px rgba(255, 42, 82, 0.35),
+        0 0 60px rgba(255, 42, 82, 0.12);
       z-index: 20;
     }
 
@@ -1375,22 +1385,23 @@
     }
 
     .player-card {
-      background: var(--netflix-card);
-      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(17, 23, 35, 0.96), rgba(11, 15, 24, 1));
+      border-radius: 20px;
       overflow: hidden;
-      border: 1px solid var(--netflix-border);
+      border: 1px solid rgba(148, 163, 184, 0.14);
       transition: all 0.3s ease;
+      box-shadow: var(--panel-shadow);
     }
 
     .player-card:hover {
-      border-color: var(--netflix-red);
-      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--netflix-red);
+      border-color: rgba(255, 42, 82, 0.7);
+      box-shadow: 0 22px 60px rgba(2, 6, 23, 0.52), 0 0 0 1px rgba(255, 42, 82, 0.26);
     }
 
     .player-header {
       padding: 20px 24px;
-      border-bottom: 1px solid var(--netflix-border);
-      background: linear-gradient(180deg, var(--netflix-card) 0%, rgba(24, 24, 24, 0.9) 100%);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+      background: linear-gradient(180deg, rgba(15, 20, 31, 0.96), rgba(12, 16, 24, 0.75));
     }
 
     .player-title {
@@ -5673,7 +5684,7 @@
   }
 </script>
 
-<!-- Bleach - Full Player Block by Seasons -->
+<!-- Bleach - Multi-Source Player Block by Seasons -->
 <style>
   .bleach-card {
     width: 100%;
@@ -5692,6 +5703,9 @@
     padding: 16px 20px;
     background: #1f1f1f;
     border-bottom: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 
   .bleach-title {
@@ -5705,6 +5719,39 @@
     margin: 4px 0 0 0;
     font-size: 13px;
     color: #aaa;
+  }
+
+  .source-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .source-selector span {
+    font-size: 12px;
+    color: #888;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .source-btn {
+    background: #2a2a2a;
+    color: #aaa;
+    border: 1px solid #444;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s ease;
+  }
+
+  .source-btn:hover,
+  .source-btn.active {
+    background: #b8d7ff;
+    color: #000;
+    border-color: #b8d7ff;
+    font-weight: bold;
   }
 
   .bleach-container {
@@ -5774,7 +5821,14 @@
   <div class="bleach-header">
     <div class="bleach-title-group">
       <h3 class="bleach-title">Bleach</h3>
-      <p class="bleach-subtitle" id="bleach-status">2embed • Season 1 • Episode 1</p>
+      <p class="bleach-subtitle" id="bleach-status">Server 1 (2Embed) • Season 1 • Episode 1</p>
+    </div>
+    
+    <div class="source-selector">
+      <span>Source:</span>
+      <button class="source-btn active" onclick="switchBleachSource('2embed', this)">Server 1 (2Embed)</button>
+      <button class="source-btn" onclick="switchBleachSource('vidsrc_pro', this)">Server 2 (VidSrc Pro)</button>
+      <button class="source-btn" onclick="switchBleachSource('vidsrc_icu', this)">Server 3 (VidSrc ICU)</button>
     </div>
   </div>
 
@@ -5791,11 +5845,27 @@
 </article>
 
 <script>
+  let currentBleachSeason = 1;
+  let currentBleachEpisode = 1;
+  let currentBleachSource = '2embed';
+  const bleachImdbId = 'tt0434665';
+
+  function getBleachEmbedUrl(source, season, episode) {
+    switch (source) {
+      case 'vidsrc_pro':
+        return `https://vidsrc.pro/embed/tv/${bleachImdbId}/${season}/${episode}`;
+      case 'vidsrc_icu':
+        return `https://vidsrc.icu/embed/tv/${bleachImdbId}/${season}/${episode}`;
+      case '2embed':
+      default:
+        return `https://www.2embed.cc/embedtv/${bleachImdbId}&s=${season}&e=${episode}`;
+    }
+  }
+
   function renderBleachSeasons() {
     const container = document.getElementById('bleach-seasons-container');
     if (!container) return;
 
-    // Официално разпределение на епизодите по сезони (Общо 366)
     const seasonsData = [
       { season: 1, episodes: 20 },
       { season: 2, episodes: 21 },
@@ -5824,7 +5894,7 @@
 
       for (let ep = 1; ep <= item.episodes; ep++) {
         const isActive = item.season === 1 && ep === 1 ? 'active' : '';
-        html += `<button class="${isActive}" onclick="playBleachEp(${item.season}, ${ep}, 'Season ${item.season} • Episode ${ep}', this)">E${ep}</button>`;
+        html += `<button class="${isActive}" onclick="playBleachEp(${item.season}, ${ep}, this)">E${ep}</button>`;
       }
 
       html += `</div></div>`;
@@ -5833,25 +5903,44 @@
     container.innerHTML = html;
   }
 
-  function playBleachEp(season, episode, titleText, btn) {
-    const imdbId = 'tt0434665';
-    const iframe = document.getElementById('bleach-frame');
-    const status = document.getElementById('bleach-status');
+  function playBleachEp(season, episode, btn) {
+    currentBleachSeason = season;
+    currentBleachEpisode = episode;
 
-    if (iframe) {
-      iframe.src = `https://www.2embed.cc/embedtv/${imdbId}&s=${season}&e=${episode}`;
-    }
-
-    if (status) {
-      status.innerText = `2embed • ${titleText}`;
-    }
+    updateBleachPlayer();
 
     const playerCard = btn ? btn.closest('.bleach-card') : null;
     const allButtons = playerCard ? playerCard.querySelectorAll('.bleach-ep-grid button') : document.querySelectorAll('.bleach-ep-grid button');
     allButtons.forEach(b => b.classList.remove('active'));
     
     if (btn) btn.classList.add('active');
-  
+  }
+
+  function switchBleachSource(sourceType, btn) {
+    currentBleachSource = sourceType;
+
+    const playerCard = btn ? btn.closest('.bleach-card') : null;
+    const sourceButtons = playerCard ? playerCard.querySelectorAll('.source-btn') : document.querySelectorAll('.source-btn');
+    sourceButtons.forEach(b => b.classList.remove('active'));
+    
+    if (btn) btn.classList.add('active');
+
+    updateBleachPlayer();
+  }
+
+  function updateBleachPlayer() {
+    const iframe = document.getElementById('bleach-frame');
+    const status = document.getElementById('bleach-status');
+
+    if (iframe) {
+      iframe.src = getBleachEmbedUrl(currentBleachSource, currentBleachSeason, currentBleachEpisode);
+    }
+
+    if (status) {
+      const sourceName = currentBleachSource === '2embed' ? 'Server 1 (2Embed)' : 
+                         currentBleachSource === 'vidsrc_pro' ? 'Server 2 (VidSrc Pro)' : 'Server 3 (VidSrc ICU)';
+      status.innerText = `${sourceName} • Season ${currentBleachSeason} • Episode ${currentBleachEpisode}`;
+    }
   }
 
   renderBleachSeasons();
